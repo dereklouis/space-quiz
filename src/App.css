@@ -1,38 +1,438 @@
-.App {
-  text-align: center;
+/* font-family: 'Expletus Sans', cursive;
+font-family: 'Roboto', sans-serif; */
+
+/* #AFEEEE */
+/* #78E2E2 */
+/* #35D4D4 */
+/* #209797 */
+/* #125454 */
+
+* {
+  font-family: 'Roboto', sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.FCAIC {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+#appMaster {
+  width: 100%;
+  height: 100vh;
+  /* background: url('./stars.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover; */
+  background-color: black;
+  font-size: 10px;
 }
 
-@keyframes App-logo-spin {
-  from {
+#titleBox {
+  justify-content: flex-start;
+}
+
+#title {
+  font-family: 'Expletus Sans', cursive;
+  font-size: 6em;
+  color: #fff;
+  margin: 0.4em 0em 0em 0em;
+}
+
+#subTitle {
+  font-family: 'Expletus Sans', cursive;
+  font-size: 3em;
+  color: #afeeee;
+  margin: 0em;
+  letter-spacing: 1.15em;
+  transform: translate(0.6em, -0.3em);
+}
+
+#solarSystemContainer {
+  width: 100%;
+  height: 90vh;
+  /* background-color: rgba(64, 224, 208, 0.174); */
+  margin: auto 0em 0em 0em;
+  position: relative;
+  overflow: hidden;
+}
+
+#sunBox {
+  transform: translate(0em, 50%);
+  position: absolute;
+  bottom: 0;
+  z-index: 5;
+}
+
+@keyframes sun {
+  0% {
     transform: rotate(0deg);
   }
-  to {
+  100% {
     transform: rotate(360deg);
   }
+}
+
+#sun {
+  animation: sun 120s linear 0s infinite;
+  width: 70em;
+  height: auto;
+}
+
+@keyframes mercuryOrbit {
+  0% {
+    transform: translate(0em, 50%) rotate(-80deg);
+  }
+  100% {
+    transform: translate(0em, 50%) rotate(280deg);
+  }
+}
+
+#mercuryOrbit {
+  animation: mercuryOrbit 100s linear 0s infinite;
+  background-color: transparent;
+  /* border: 2px dotted red; */
+  border-radius: 50%;
+  width: 60em;
+  height: 60em;
+  position: absolute;
+  bottom: 0;
+  transform: translate(0em, 50%);
+}
+
+@keyframes mercury {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+#mercury {
+  animation: mercury 15s linear 0s infinite;
+  width: 3em;
+  height: 3em;
+  z-index: 1;
+}
+
+#mercuryShadowBox {
+  transform: translate(0em, -50%);
+  width: 3em;
+  height: 3em;
+  justify-content: center;
+}
+
+#mercuryShadow {
+  z-index: 2;
+  width: 3em;
+  height: 3em;
+  position: absolute;
+  background: linear-gradient(
+    0deg,
+    rgba(255, 255, 255, 0.2),
+    rgba(0, 0, 0, 0.75),
+    black
+  );
+  box-shadow: 0em 0.1em 0.3em 0.2em rgb(0, 0, 0);
+  border-radius: 50%;
+}
+
+@keyframes venusOrbit {
+  0% {
+    transform: translate(0em, 50%) rotate(70deg);
+  }
+  100% {
+    transform: translate(0em, 50%) rotate(430deg);
+  }
+}
+
+#venusOrbit {
+  animation: venusOrbit 130s linear 0s infinite;
+  background-color: transparent;
+  /* border: 2px dotted blue; */
+  border-radius: 50%;
+  width: 77em;
+  height: 77em;
+  position: absolute;
+  bottom: 0;
+  transform: translate(0em, 50%);
+}
+
+@keyframes venus {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+
+#venus {
+  animation: venus 150s linear 0s infinite;
+  width: 10em;
+  height: 10em;
+  z-index: 1;
+}
+
+#venusShadowBox {
+  transform: translate(0em, -50%);
+  width: 10em;
+  height: 10em;
+  justify-content: center;
+}
+
+#venusShadow {
+  z-index: 2;
+  width: 10em;
+  height: 10em;
+  position: absolute;
+  background: linear-gradient(
+    0deg,
+    rgba(255, 255, 255, 0.2),
+    rgba(0, 0, 0, 0.75),
+    black
+  );
+  box-shadow: 0em 0.1em 0.3em 0.2em rgb(0, 0, 0);
+  border-radius: 50%;
+}
+
+@keyframes earthOrbit {
+  0% {
+    transform: translate(0em, 50%) rotate(20deg);
+  }
+  100% {
+    transform: translate(0em, 50%) rotate(380deg);
+  }
+}
+
+#earthOrbit {
+  animation: earthOrbit 175s linear 0s infinite;
+  background-color: transparent;
+  /* border: 2px dotted green; */
+  border-radius: 50%;
+  width: 115em;
+  height: 115em;
+  position: absolute;
+  bottom: 0;
+  transform: translate(0em, 50%);
+}
+
+@keyframes earth {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+#earth {
+  animation: earth 70s linear 0s infinite;
+  width: 10em;
+  height: 10em;
+  transform: translate(0%, 50px);
+  z-index: 1;
+}
+
+#earthShadowBox {
+  transform: translate(0em, -50%);
+  width: 10em;
+  height: 10em;
+  justify-content: center;
+}
+
+#earthShadow {
+  z-index: 2;
+  width: 10em;
+  height: 10em;
+  position: absolute;
+  background: linear-gradient(
+    0deg,
+    rgba(255, 255, 255, 0.2),
+    rgba(0, 0, 0, 0.75),
+    black
+  );
+  box-shadow: 0em 0.1em 0.3em 0.2em rgb(0, 0, 0);
+  border-radius: 50%;
+}
+
+@keyframes moonOrbit {
+  0% {
+    transform: translate(0em, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(0em, -50%) rotate(360deg);
+  }
+}
+
+#moonOrbit {
+  animation: moonOrbit 175s linear 0s infinite;
+  background-color: transparent;
+  /* border: 2px dotted rgb(122, 0, 128); */
+  border-radius: 50%;
+  width: 20em;
+  height: 20em;
+  position: absolute;
+  top: 0;
+  transform: translate(0em, -50%);
+}
+
+#moon {
+  width: 3em;
+  height: 3em;
+  z-index: 1;
+}
+
+#moonShadowBox {
+  transform: translate(0em, -50%);
+  width: 3em;
+  height: 3em;
+  justify-content: center;
+}
+
+@keyframes moonShadow {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+
+#moonShadow {
+  animation: moonShadow 175s linear 0s infinite;
+  z-index: 2;
+  width: 3em;
+  height: 3em;
+  position: absolute;
+  background: linear-gradient(
+    0deg,
+    rgba(255, 255, 255, 0.2),
+    rgba(0, 0, 0, 0.75),
+    black
+  );
+  box-shadow: 0em 0.1em 0.3em 0.2em rgb(0, 0, 0);
+  border-radius: 50%;
+}
+
+@keyframes marsOrbit {
+  0% {
+    transform: translate(0em, 50%) rotate(-45deg);
+  }
+  100% {
+    transform: translate(0em, 50%) rotate(315deg);
+  }
+}
+
+#marsOrbit {
+  animation: marsOrbit 200s linear 0s infinite;
+  background-color: transparent;
+  /* border: 2px dotted rgb(222, 116, 24); */
+  border-radius: 50%;
+  width: 156em;
+  height: 156em;
+  position: absolute;
+  bottom: 0;
+  transform: translate(0em, 50%);
+}
+
+@keyframes mars {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+#mars {
+  animation: mars 70s linear 0s infinite;
+  width: 6em;
+  height: 6em;
+  transform: translate(0%, 50px);
+  z-index: 1;
+}
+
+#marsShadowBox {
+  transform: translate(0em, -50%);
+  width: 6em;
+  height: 6em;
+  justify-content: center;
+}
+
+#marsShadow {
+  z-index: 2;
+  width: 6em;
+  height: 6em;
+  position: absolute;
+  background: linear-gradient(
+    0deg,
+    rgba(255, 255, 255, 0.2),
+    rgba(0, 0, 0, 0.75),
+    black
+  );
+  box-shadow: 0em 0.1em 0.3em 0.2em rgb(0, 0, 0);
+  border-radius: 50%;
+}
+
+@keyframes jupiterOrbit {
+  0% {
+    transform: translate(0em, 50%) rotate(-10deg);
+  }
+  100% {
+    transform: translate(0em, 50%) rotate(350deg);
+  }
+}
+
+#jupiterOrbit {
+  animation: jupiterOrbit 220s linear 0s infinite;
+  background-color: transparent;
+  /* border: 2px dotted rgb(24, 222, 202); */
+  border-radius: 50%;
+  width: 185em;
+  height: 185em;
+  position: absolute;
+  bottom: 0;
+  transform: translate(0em, 50%);
+}
+
+@keyframes jupiter {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+#jupiter {
+  animation: jupiter 30s linear 0s infinite;
+  width: 15em;
+  height: 15em;
+  transform: translate(0%, 50px);
+  z-index: 1;
+}
+
+#jupiterShadowBox {
+  transform: translate(0em, -50%);
+  width: 15em;
+  height: 15em;
+  justify-content: center;
+}
+
+#jupiterShadow {
+  z-index: 2;
+  width: 15em;
+  height: 15em;
+  position: absolute;
+  background: linear-gradient(
+    0deg,
+    rgba(255, 255, 255, 0.2),
+    rgba(0, 0, 0, 0.75),
+    black
+  );
+  box-shadow: 0em 0.1em 0.3em 0.2em rgb(0, 0, 0);
+  border-radius: 50%;
 }
