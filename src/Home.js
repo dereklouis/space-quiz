@@ -136,8 +136,14 @@ function Home() {
       >
         <h2 id="infoPanelTitle">MODEL SOLAR SYSTEM INFORMATION</h2>
         <ul id="mainUL">
-          <li className="mainLI">Oribital Periods = 1 / 1,000,000 Scale</li>
-          <li className="mainLI">Rotational Periods = 1 / 100,000 Scale</li>
+          <li className="mainLI">
+            Oribital Periods <span className="equalMargin">=</span> 1 /
+            1,000,000 Scale
+          </li>
+          <li className="mainLI">
+            Rotational Periods <span className="equalMargin">=</span> 1 /
+            100,000 Scale
+          </li>
         </ul>
         <div id="panelBottomRow">
           <div className="panelBottomRowColumn">

@@ -495,10 +495,10 @@ font-family: 'Roboto', sans-serif; */
 
 @keyframes comet {
   0% {
-    transform: translate(0vw, -20vh) rotate(66deg);
+    transform: translate(0vw, -20vh) rotate(68deg) scale(1);
   }
   100% {
-    transform: translate(0vw, 120vh) rotate(66deg);
+    transform: translate(0vw, 120vh) rotate(68deg) scale(0.1);
   }
 }
 
@@ -507,7 +507,7 @@ font-family: 'Roboto', sans-serif; */
 }
 
 .cometAnimation {
-  animation: comet 1s linear 0s 1 normal forwards;
+  animation: comet 1.25s linear 0s 1 normal forwards;
 }
 
 @keyframes spaceAnimation1 {
@@ -520,7 +520,7 @@ font-family: 'Roboto', sans-serif; */
 }
 
 .spaceAnimation1 {
-  animation: spaceAnimation1 3s cubic-bezier(0.18, 1.05, 0.52, 1.07) 0.1s 1;
+  animation: spaceAnimation1 3.25s cubic-bezier(0.18, 1.05, 0.52, 1.07) 0.1s 1;
 }
 
 @keyframes spaceAnimation2 {
@@ -567,7 +567,7 @@ font-family: 'Roboto', sans-serif; */
 
 #infoPanelTitle {
   color: white;
-  font-size: 3.25em;
+  font-size: 4em;
   margin: 1em 0em 0.5em 0em;
 }
 
@@ -577,15 +577,19 @@ font-family: 'Roboto', sans-serif; */
 }
 
 .mainLI {
-  font-size: 1.75em;
+  font-size: 2em;
   margin: 0em 0em 1em 0em;
+}
+
+.equalMargin {
+  margin: 0em 1em;
 }
 
 #panelBottomRow {
   display: flex;
   justify-content: center;
   width: 90%;
-  height: 60%;
+  height: 55%;
   margin: 0em 0em 3em 0em;
 }
 
@@ -606,17 +610,16 @@ font-family: 'Roboto', sans-serif; */
 }
 
 .subLI {
-  font-size: 1em;
   margin: 2em 0em;
-  font-size: 1.5em;
+  font-size: 1.75em;
   font-weight: 200;
   line-height: 1.5em;
 }
 
 #panelBottomRow div h4 {
   color: white;
-  font-size: 1.5em;
-  margin: 0em 0em 3em 0em;
+  font-size: 1.75em;
+  margin: 1em 0em;
 }
 
 #infoPanelLine {
