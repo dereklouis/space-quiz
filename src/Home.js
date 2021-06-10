@@ -161,7 +161,7 @@ function Home() {
           </div>
           <div id="infoPanelLine" />
           <div className="panelBottomRowColumn">
-            <h4>INNACURATE</h4>
+            <h4>INACCURATE</h4>
             <ul className="subUL">
               <li className="subLI">
                 Sun and Jupiter diameters are not accurate in any way other than
