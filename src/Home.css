@@ -150,8 +150,8 @@ font-family: 'Roboto', sans-serif; */
   background-color: transparent;
   /* border: 2px dotted rgba(255, 0, 0, 0.5); */
   border-radius: 50%;
-  width: 60em;
-  height: 60em;
+  width: 62em;
+  height: 62em;
   position: absolute;
   bottom: 0;
   transform: translate(0em, 50%);
@@ -168,22 +168,22 @@ font-family: 'Roboto', sans-serif; */
 
 #mercury {
   animation: mercury 50.5s linear 0s infinite;
-  width: 3em;
-  height: 3em;
+  width: 3.8em;
+  height: 3.8em;
   z-index: 1;
 }
 
 #mercuryShadowBox {
   transform: translate(0em, -50%);
-  width: 3em;
-  height: 3em;
+  width: 3.8em;
+  height: 3.8em;
   justify-content: center;
 }
 
 #mercuryShadow {
   z-index: 2;
-  width: 3em;
-  height: 3em;
+  width: 3.8em;
+  height: 3.8em;
   position: absolute;
   background: linear-gradient(
     0deg,
@@ -209,8 +209,8 @@ font-family: 'Roboto', sans-serif; */
   background-color: transparent;
   /* border: 2px dotted rgba(0, 0, 255, 0.5); */
   border-radius: 50%;
-  width: 77em;
-  height: 77em;
+  width: 79em;
+  height: 79em;
   position: absolute;
   bottom: 0;
   transform: translate(0em, 50%);
@@ -227,22 +227,22 @@ font-family: 'Roboto', sans-serif; */
 
 #venus {
   animation: venus 209.9s linear 0s infinite;
-  width: 10em;
-  height: 10em;
+  width: 9.5em;
+  height: 9.5em;
   z-index: 1;
 }
 
 #venusShadowBox {
   transform: translate(0em, -50%);
-  width: 10em;
-  height: 10em;
+  width: 9.5em;
+  height: 9.5em;
   justify-content: center;
 }
 
 #venusShadow {
   z-index: 2;
-  width: 10em;
-  height: 10em;
+  width: 9.5em;
+  height: 9.5em;
   position: absolute;
   background: linear-gradient(
     0deg,
@@ -405,23 +405,23 @@ font-family: 'Roboto', sans-serif; */
 
 #mars {
   animation: mars 0.88s linear 0s infinite;
-  width: 6em;
-  height: 6em;
+  width: 5.3em;
+  height: 5.3em;
   transform: translate(0%, 50px);
   z-index: 1;
 }
 
 #marsShadowBox {
   transform: translate(0em, -50%);
-  width: 6em;
-  height: 6em;
+  width: 5.3em;
+  height: 5.3em;
   justify-content: center;
 }
 
 #marsShadow {
   z-index: 2;
-  width: 6em;
-  height: 6em;
+  width: 5.3em;
+  height: 5.3em;
   position: absolute;
   background: linear-gradient(
     0deg,
@@ -447,8 +447,8 @@ font-family: 'Roboto', sans-serif; */
   background-color: transparent;
   /* border: 2px dotted rgba(24, 222, 202, 0.5); */
   border-radius: 50%;
-  width: 185em;
-  height: 185em;
+  width: 195em;
+  height: 195em;
   position: absolute;
   bottom: 0;
   transform: translate(0em, 50%);
@@ -465,23 +465,23 @@ font-family: 'Roboto', sans-serif; */
 
 #jupiter {
   animation: jupiter 0.36s linear 0s infinite;
-  width: 15em;
-  height: 15em;
+  width: 20em;
+  height: 20em;
   transform: translate(0%, 50px);
   z-index: 1;
 }
 
 #jupiterShadowBox {
   transform: translate(0em, -50%);
-  width: 15em;
-  height: 15em;
+  width: 20em;
+  height: 20em;
   justify-content: center;
 }
 
 #jupiterShadow {
   z-index: 2;
-  width: 15em;
-  height: 15em;
+  width: 20em;
+  height: 20em;
   position: absolute;
   background: linear-gradient(
     0deg,
@@ -547,4 +547,91 @@ font-family: 'Roboto', sans-serif; */
 
 .spaceAnimation3 {
   animation: spaceAnimation3 3s cubic-bezier(0.18, 1.05, 0.52, 1.07) 0.1s 1;
+}
+
+#infoPanel {
+  position: absolute;
+  border: 0.05em solid #afeeee;
+  border-radius: 3em;
+  width: 100em;
+  height: 60em;
+  z-index: 2;
+  background-color: rgba(0, 0, 0, 0.9);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition-duration: 1s;
+}
+
+#infoPanelTitle {
+  color: white;
+  font-size: 3.25em;
+  margin: 1em 0em 0.5em 0em;
+}
+
+#mainUL {
+  color: white;
+  margin: 1em 0em auto 0em;
+}
+
+.mainLI {
+  font-size: 1.75em;
+  margin: 0em 0em 1em 0em;
+}
+
+#panelBottomRow {
+  display: flex;
+  justify-content: center;
+  width: 90%;
+  height: 60%;
+  margin: 0em 0em 3em 0em;
+}
+
+.panelBottomRowColumn {
+  margin: 1em auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.subUL {
+  color: white;
+  /* margin: auto 0em; */
+  width: 75%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.subLI {
+  font-size: 1em;
+  margin: 2em 0em;
+  font-size: 1.5em;
+  font-weight: 200;
+  line-height: 1.5em;
+}
+
+#panelBottomRow div h4 {
+  color: white;
+  font-size: 1.5em;
+  margin: 0em 0em 3em 0em;
+}
+
+#infoPanelLine {
+  height: 100%;
+  width: 0.25em;
+  border-radius: 0.5em;
+  background-color: white;
+}
+
+.panelHide {
+  opacity: 0;
+  transform: scale(0) translate(0em, 22em);
+}
+
+.panelShow {
+  opacity: 1;
+  transform: scale(1) translate(0em, 22em);
 }

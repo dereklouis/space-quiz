@@ -6,3 +6,11 @@ body {
 * {
   font-family: 'Roboto', sans-serif;
 }
+
+.opacityHide {
+  opacity: 0;
+}
+
+.opacityShow {
+  opacity: 1;
+}
