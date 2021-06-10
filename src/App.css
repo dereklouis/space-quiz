@@ -75,7 +75,7 @@ font-family: 'Roboto', sans-serif; */
 }
 
 #sun {
-  animation: sun 120s linear 0s infinite;
+  animation: sun 21.6s linear 0s infinite;
   width: 70em;
   height: auto;
 }
@@ -90,9 +90,9 @@ font-family: 'Roboto', sans-serif; */
 }
 
 #mercuryOrbit {
-  animation: mercuryOrbit 100s linear 0s infinite;
+  animation: mercuryOrbit 7.6s linear 0s infinite;
   background-color: transparent;
-  /* border: 2px dotted red; */
+  /* border: 2px dotted rgba(255, 0, 0, 0.5); */
   border-radius: 50%;
   width: 60em;
   height: 60em;
@@ -111,7 +111,7 @@ font-family: 'Roboto', sans-serif; */
 }
 
 #mercury {
-  animation: mercury 15s linear 0s infinite;
+  animation: mercury 50.5s linear 0s infinite;
   width: 3em;
   height: 3em;
   z-index: 1;
@@ -141,17 +141,17 @@ font-family: 'Roboto', sans-serif; */
 
 @keyframes venusOrbit {
   0% {
-    transform: translate(0em, 50%) rotate(70deg);
+    transform: translate(0em, 50%) rotate(-220deg);
   }
   100% {
-    transform: translate(0em, 50%) rotate(430deg);
+    transform: translate(0em, 50%) rotate(140deg);
   }
 }
 
 #venusOrbit {
-  animation: venusOrbit 130s linear 0s infinite;
+  animation: venusOrbit 19s linear 0s infinite;
   background-color: transparent;
-  /* border: 2px dotted blue; */
+  /* border: 2px dotted rgba(0, 0, 255, 0.5); */
   border-radius: 50%;
   width: 77em;
   height: 77em;
@@ -170,7 +170,7 @@ font-family: 'Roboto', sans-serif; */
 }
 
 #venus {
-  animation: venus 150s linear 0s infinite;
+  animation: venus 209.9s linear 0s infinite;
   width: 10em;
   height: 10em;
   z-index: 1;
@@ -200,17 +200,17 @@ font-family: 'Roboto', sans-serif; */
 
 @keyframes earthOrbit {
   0% {
-    transform: translate(0em, 50%) rotate(20deg);
+    transform: translate(0em, 50%) rotate(0deg);
   }
   100% {
-    transform: translate(0em, 50%) rotate(380deg);
+    transform: translate(0em, 50%) rotate(360deg);
   }
 }
 
 #earthOrbit {
-  animation: earthOrbit 175s linear 0s infinite;
+  animation: earthOrbit 31.5s linear 0s infinite;
   background-color: transparent;
-  /* border: 2px dotted green; */
+  /* border: 2px dotted rgba(0, 255, 0, 0.5); */
   border-radius: 50%;
   width: 115em;
   height: 115em;
@@ -229,7 +229,7 @@ font-family: 'Roboto', sans-serif; */
 }
 
 #earth {
-  animation: earth 70s linear 0s infinite;
+  animation: earth 0.86s linear 0s infinite;
   width: 10em;
   height: 10em;
   transform: translate(0%, 50px);
@@ -268,9 +268,9 @@ font-family: 'Roboto', sans-serif; */
 }
 
 #moonOrbit {
-  animation: moonOrbit 175s linear 0s infinite;
+  animation: moonOrbit 2s linear 0s infinite;
   background-color: transparent;
-  /* border: 2px dotted rgb(122, 0, 128); */
+  /* border: 2px dotted rgba(122, 0, 128, 0.5); */
   border-radius: 50%;
   width: 20em;
   height: 20em;
@@ -302,7 +302,7 @@ font-family: 'Roboto', sans-serif; */
 }
 
 #moonShadow {
-  animation: moonShadow 175s linear 0s infinite;
+  animation: moonShadow 2s linear 0s infinite;
   z-index: 2;
   width: 3em;
   height: 3em;
@@ -327,9 +327,9 @@ font-family: 'Roboto', sans-serif; */
 }
 
 #marsOrbit {
-  animation: marsOrbit 200s linear 0s infinite;
+  animation: marsOrbit 59s linear 0s infinite;
   background-color: transparent;
-  /* border: 2px dotted rgb(222, 116, 24); */
+  /* border: 2px dotted rgba(222, 116, 24, 0.5); */
   border-radius: 50%;
   width: 156em;
   height: 156em;
@@ -348,7 +348,7 @@ font-family: 'Roboto', sans-serif; */
 }
 
 #mars {
-  animation: mars 70s linear 0s infinite;
+  animation: mars 0.88s linear 0s infinite;
   width: 6em;
   height: 6em;
   transform: translate(0%, 50px);
@@ -379,17 +379,17 @@ font-family: 'Roboto', sans-serif; */
 
 @keyframes jupiterOrbit {
   0% {
-    transform: translate(0em, 50%) rotate(-10deg);
+    transform: translate(0em, 50%) rotate(-20deg);
   }
   100% {
-    transform: translate(0em, 50%) rotate(350deg);
+    transform: translate(0em, 50%) rotate(340deg);
   }
 }
 
 #jupiterOrbit {
-  animation: jupiterOrbit 220s linear 0s infinite;
+  animation: jupiterOrbit 378.6s linear 0s infinite;
   background-color: transparent;
-  /* border: 2px dotted rgb(24, 222, 202); */
+  /* border: 2px dotted rgba(24, 222, 202, 0.5); */
   border-radius: 50%;
   width: 185em;
   height: 185em;
@@ -408,7 +408,7 @@ font-family: 'Roboto', sans-serif; */
 }
 
 #jupiter {
-  animation: jupiter 30s linear 0s infinite;
+  animation: jupiter 0.36s linear 0s infinite;
   width: 15em;
   height: 15em;
   transform: translate(0%, 50px);
