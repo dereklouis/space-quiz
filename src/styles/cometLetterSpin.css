@@ -1,0 +1,55 @@
+@keyframes comet {
+  0% {
+    transform: translate(0vw, -20vh) rotate(68deg) scale(1);
+  }
+  100% {
+    transform: translate(0vw, 120vh) rotate(68deg) scale(0.1);
+  }
+}
+
+#comet {
+  transform: translate(0em, -20vh) rotate(66deg);
+}
+
+.cometAnimation {
+  animation: comet 1.25s linear 0s 1 normal forwards;
+}
+
+@keyframes spaceAnimation1 {
+  0% {
+    transform: rotateX(0deg);
+  }
+  100% {
+    transform: rotateX(-1080deg);
+  }
+}
+
+.spaceAnimation1 {
+  animation: spaceAnimation1 3.25s cubic-bezier(0.18, 1.05, 0.52, 1.07) 0.1s 1;
+}
+
+@keyframes spaceAnimation2 {
+  0% {
+    transform: rotateX(0deg);
+  }
+  100% {
+    transform: rotateX(-720deg);
+  }
+}
+
+.spaceAnimation2 {
+  animation: spaceAnimation2 3s cubic-bezier(0.18, 1.05, 0.52, 1.07) 0.1s 1;
+}
+
+@keyframes spaceAnimation3 {
+  0% {
+    transform: rotateX(0deg);
+  }
+  100% {
+    transform: rotateX(-360deg);
+  }
+}
+
+.spaceAnimation3 {
+  animation: spaceAnimation3 3s cubic-bezier(0.18, 1.05, 0.52, 1.07) 0.1s 1;
+}

@@ -1,5 +1,13 @@
 import './Home.css';
 import { useState, useRef } from 'react';
+import './styles/sun.css';
+import './styles/mercury.css';
+import './styles/venus.css';
+import './styles/earthMoon.css';
+import './styles/mars.css';
+import './styles/jupiter.css';
+import './styles/infoPanel.css';
+import './styles/cometLetterSpin.css';
 
 function Home() {
   const beginRipple = useRef(null);

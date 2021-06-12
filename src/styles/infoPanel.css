@@ -1,0 +1,89 @@
+#infoPanel {
+  position: absolute;
+  border: 0.05em solid #afeeee;
+  border-radius: 3em;
+  width: 100em;
+  height: 60em;
+  z-index: 2;
+  background-color: rgba(0, 0, 0, 0.9);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition-duration: 1s;
+}
+
+#infoPanelTitle {
+  color: white;
+  font-size: 4em;
+  margin: 1em 0em 0.5em 0em;
+}
+
+#mainUL {
+  color: white;
+  margin: 1em 0em auto 0em;
+}
+
+.mainLI {
+  font-size: 2em;
+  margin: 0em 0em 1em 0em;
+}
+
+.equalMargin {
+  margin: 0em 1em;
+}
+
+#panelBottomRow {
+  display: flex;
+  justify-content: center;
+  width: 90%;
+  height: 55%;
+  margin: 0em 0em 3em 0em;
+}
+
+.panelBottomRowColumn {
+  margin: 1em auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.subUL {
+  color: white;
+  /* margin: auto 0em; */
+  width: 75%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.subLI {
+  margin: 2em 0em;
+  font-size: 1.75em;
+  font-weight: 200;
+  line-height: 1.5em;
+}
+
+#panelBottomRow div h4 {
+  color: white;
+  font-size: 1.75em;
+  margin: 1em 0em;
+}
+
+#infoPanelLine {
+  height: 100%;
+  width: 0.25em;
+  border-radius: 0.5em;
+  background-color: white;
+}
+
+.panelHide {
+  opacity: 0;
+  transform: scale(0) translate(0em, 22em);
+}
+
+.panelShow {
+  opacity: 1;
+  transform: scale(1) translate(0em, 22em);
+}

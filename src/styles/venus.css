@@ -1,0 +1,58 @@
+@keyframes venusOrbit {
+  0% {
+    transform: translate(0em, 50%) rotate(-220deg);
+  }
+  100% {
+    transform: translate(0em, 50%) rotate(140deg);
+  }
+}
+
+#venusOrbit {
+  animation: venusOrbit 19s linear 0s infinite;
+  background-color: transparent;
+  /* border: 2px dotted rgba(0, 0, 255, 0.5); */
+  border-radius: 50%;
+  width: 79em;
+  height: 79em;
+  position: absolute;
+  bottom: 0;
+  transform: translate(0em, 50%);
+}
+
+@keyframes venus {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+
+#venus {
+  animation: venus 209.9s linear 0s infinite;
+  width: 9.5em;
+  height: 9.5em;
+  z-index: 1;
+}
+
+#venusShadowBox {
+  transform: translate(0em, -50%);
+  width: 9.5em;
+  height: 9.5em;
+  justify-content: center;
+}
+
+#venusShadow {
+  z-index: 2;
+  width: 9.5em;
+  height: 9.5em;
+  position: absolute;
+  background: linear-gradient(
+    0deg,
+    rgba(255, 255, 255, 0.2),
+    rgba(0, 0, 0, 0.75),
+    black
+  );
+  box-shadow: 0em 0.1em 0.3em 0.2em rgb(0, 0, 0);
+  border-radius: 50%;
+}

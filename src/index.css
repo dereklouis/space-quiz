@@ -7,6 +7,12 @@ body {
   font-family: 'Roboto', sans-serif;
 }
 
+.FCAIC {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .opacityHide {
   opacity: 0;
 }
