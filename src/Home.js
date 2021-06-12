@@ -1,12 +1,13 @@
-import './Home.css';
 import { useState, useRef } from 'react';
+import Quiz from './Quiz';
+import InfoPanel from './InfoPanel';
+import './Home.css';
 import './styles/sun.css';
 import './styles/mercury.css';
 import './styles/venus.css';
 import './styles/earthMoon.css';
 import './styles/mars.css';
 import './styles/jupiter.css';
-import './styles/infoPanel.css';
 import './styles/cometLetterSpin.css';
 
 function Home() {
@@ -25,11 +26,14 @@ function Home() {
   const infoPanel = useRef(null);
 
   const [infoPanelState, setInfoPanelState] = useState(false);
+  const [quizStatus, setQuizStatus] = useState(false);
+  const [currentSlide, setCurrentSlide] = useState(
+    localStorage.getItem('spaceQuizAnswersArr').split('').length - 1
+  );
 
   const handleClick = (e) => {
-    const x =
-      e.clientX - (e.target.offsetLeft + e.target.parentNode.offsetLeft);
-    const y = e.clientY - (e.target.offsetTop + e.target.parentNode.offsetTop);
+    const x = e.clientX - e.target.getBoundingClientRect().left;
+    const y = e.clientY - e.target.getBoundingClientRect().top;
     if (e.target.innerText === 'BEGIN') {
       beginRipple.current.style.left = `${x}px`;
       beginRipple.current.style.top = `${y}px`;
@@ -57,6 +61,9 @@ function Home() {
 
   const resetAnimation = (e, ref) => {
     ref.current.className = '';
+    if (ref.current.id === 'comet') {
+      setQuizStatus(true);
+    }
   };
 
   return (
@@ -138,51 +145,12 @@ function Home() {
           />
         </button>
       </div>
-      <div
-        id="infoPanel"
-        className={infoPanelState ? 'panelShow' : 'panelHide'}
-        ref={infoPanel}
-      >
-        <h2 id="infoPanelTitle">MODEL SOLAR SYSTEM INFORMATION</h2>
-        <ul id="mainUL">
-          <li className="mainLI">
-            Oribital Periods <span className="equalMargin">=</span> 1 /
-            1,000,000 Scale
-          </li>
-          <li className="mainLI">
-            Rotational Periods <span className="equalMargin">=</span> 1 /
-            100,000 Scale
-          </li>
-        </ul>
-        <div id="panelBottomRow">
-          <div className="panelBottomRowColumn">
-            <h4>ACCURATE</h4>
-            <ul className="subUL">
-              <li className="subLI">
-                Mercury, Venus, Moon and Mars diameters are accurate relative to
-                the Earth diameter
-              </li>
-              <li className="subLI">
-                Orbital and rotational periods are accurate to the scales listed
-                above
-              </li>
-            </ul>
-          </div>
-          <div id="infoPanelLine" />
-          <div className="panelBottomRowColumn">
-            <h4>INACCURATE</h4>
-            <ul className="subUL">
-              <li className="subLI">
-                Sun and Jupiter diameters are not accurate in any way other than
-                to look good on screen
-              </li>
-              <li className="subLI">
-                Orbital diameters are not accurate in any way
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
+      <InfoPanel infoPanel={infoPanel} infoPanelState={infoPanelState} />
+      <Quiz
+        quizStatus={quizStatus}
+        currentSlide={currentSlide}
+        setCurrentSlide={setCurrentSlide}
+      />
       <div id="solarSystemContainer" className="FCAIC">
         <img
           alt="comet"

@@ -1,0 +1,201 @@
+#quizPanel {
+  position: absolute;
+  border: 0.05em solid #afeeee;
+  border-radius: 3em;
+  width: 100em;
+  height: 60em;
+  z-index: 2;
+  background-color: rgba(0, 0, 0, 0.9);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition-duration: 1s;
+}
+
+#tableOfContents {
+  width: 100%;
+  height: 100%;
+}
+
+#quizContentsTitle {
+  color: white;
+  font-size: 5em;
+  margin: 1em 0em 0.5em 0em;
+  letter-spacing: 0.1em;
+  color: #78e2e2;
+}
+
+#quizContentsList {
+  color: #afeeee;
+  font-size: 2.5em;
+  font-weight: 100;
+}
+
+#quizContentsList li {
+  margin: 1.5em 0em;
+}
+
+#backButton,
+#nextButton {
+  position: absolute;
+  border-radius: 50%;
+  width: 5em;
+  height: 5em;
+  cursor: pointer;
+  background-color: transparent;
+  border-top: 0.2em solid #afeeee;
+  border-left: 0.2em solid #afeeee;
+  border-right: 0.2em solid rgba(255, 255, 255, 0.5);
+  border-bottom: 0.2em solid rgba(255, 255, 255, 0.5);
+  overflow: hidden;
+  transition-duration: 1s;
+}
+
+#backButton {
+  transform: translate(-33em, 18em);
+}
+
+#nextButton {
+  transform: translate(33em, 18em);
+}
+
+#backRocket,
+#nextRocket {
+  width: 65%;
+  height: auto;
+}
+
+#backRocket {
+  transform: scaleX(-1);
+}
+
+@keyframes backSpin {
+  0% {
+    transform: translate(-33em, 18em) rotate(0deg);
+  }
+  100% {
+    transform: translate(-33em, 18em) rotate(-360deg);
+  }
+}
+
+@keyframes backRocketSpin {
+  0% {
+    transform: scaleX(-1) rotate(0deg);
+  }
+  100% {
+    transform: scaleX(-1) rotate(-360deg);
+  }
+}
+
+@keyframes nextSpin {
+  0% {
+    transform: translate(33em, 18em) rotate(0deg);
+  }
+  100% {
+    transform: translate(33em, 18em) rotate(360deg);
+  }
+}
+
+@keyframes nextRocketSpin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+
+.backSpin {
+  animation: backSpin 2s ease-out 0s 1;
+}
+
+.backRocketSpin {
+  animation: backRocketSpin 2s ease-out 0s 1;
+}
+
+.nextSpin {
+  animation: nextSpin 2s ease-out 0s 1;
+}
+
+.nextRocketSpin {
+  animation: nextRocketSpin 2s ease-out 0s 1;
+}
+
+#questionPanel {
+  width: 100%;
+  height: 100%;
+}
+
+#questionTitleContainer {
+  width: 80%;
+  text-align: center;
+}
+
+#questionTitle {
+  color: white;
+  font-size: 2em;
+  margin: 2em 0em 1.5em 0em;
+  letter-spacing: 0.1em;
+  line-height: 1.6em;
+  color: #78e2e2;
+}
+
+#answerButtonsDiv {
+  width: 70%;
+  height: 55%;
+  margin: 4em 0em 0em 0em;
+  justify-content: space-between;
+}
+
+.answerButtonsRow {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.answerButton {
+  font-size: 2em;
+  line-height: 1.25em;
+  /* padding: 0.25em 1em; */
+  font-weight: 300;
+  width: 15em;
+  height: 7em;
+  border-radius: 1em;
+  border: 0.05em solid rgba(255, 255, 255, 0.5);
+  background-color: transparent;
+  color: #78e2e2;
+  cursor: pointer;
+  transition-duration: 0.75s;
+  letter-spacing: 0.1em;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  overflow: hidden;
+}
+
+.answerButton:hover {
+  border: 0.05em solid #afeeee;
+}
+
+@keyframes answerRipple {
+  0% {
+    opacity: 0.3;
+    width: 0em;
+    height: 0em;
+  }
+  100% {
+    opacity: 0;
+    width: 45em;
+    height: 45em;
+  }
+}
+
+.answerRripple {
+  animation: answerRipple 1s linear 0s 1;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background-color: #fff;
+}

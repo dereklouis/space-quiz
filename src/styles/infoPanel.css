@@ -77,13 +77,3 @@
   border-radius: 0.5em;
   background-color: white;
 }
-
-.panelHide {
-  opacity: 0;
-  transform: scale(0) translate(0em, 22em);
-}
-
-.panelShow {
-  opacity: 1;
-  transform: scale(1) translate(0em, 22em);
-}

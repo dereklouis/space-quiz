@@ -17,6 +17,7 @@ font-family: 'Roboto', sans-serif; */
   background-size: cover; */
   background-color: black;
   font-size: 10px;
+  position: relative;
 }
 
 #navBar {
@@ -48,7 +49,7 @@ font-family: 'Roboto', sans-serif; */
 
 @keyframes ripple {
   0% {
-    opacity: 0.5;
+    opacity: 0;
     width: 0em;
     height: 0em;
   }
@@ -118,18 +119,20 @@ font-family: 'Roboto', sans-serif; */
   25% {
     transform: translate(-2em, 4.5em) rotate(-23deg) scaleX(-0.55) scaleY(0.33);
   }
-  50% {
+  42% {
     transform: translate(-8.7em, 7.6em) rotate(-23deg) scaleX(0) scaleY(0);
   }
   100% {
     transform: translate(-8.7em, 7.6em) rotate(-23deg) scaleX(0) scaleY(0);
+    opacity: 1;
   }
 }
 
 #meteor {
-  animation: meteor 30s linear 0s infinite;
+  animation: meteor 30s linear 3s infinite;
   z-index: 0;
   width: 25em;
   height: auto;
   position: absolute;
+  opacity: 0;
 }
