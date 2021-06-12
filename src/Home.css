@@ -82,9 +82,10 @@ font-family: 'Roboto', sans-serif; */
 }
 
 #title {
-  color: #fff;
+  color: #125454;
   margin: 0em;
   font-size: 6em;
+  z-index: 1;
 }
 
 #title span {
@@ -94,10 +95,11 @@ font-family: 'Roboto', sans-serif; */
 
 #subTitle {
   font-size: 3em;
-  color: #afeeee;
+  color: #35d4d4;
   margin: 0em;
   letter-spacing: 1.2em;
   transform: translate(0.6em, -0.3em);
+  z-index: 1;
 }
 
 #subTitle span {
@@ -637,4 +639,30 @@ font-family: 'Roboto', sans-serif; */
 .panelShow {
   opacity: 1;
   transform: scale(1) translate(0em, 22em);
+}
+
+@keyframes meteor {
+  0% {
+    transform: translate(8.74em, -0.85em) rotate(-23deg) scaleX(-0.1)
+      scaleY(0.1);
+    opacity: 1;
+  }
+  25% {
+    transform: translate(-2em, 4.5em) rotate(-23deg) scaleX(-0.55) scaleY(0.33);
+  }
+  50% {
+    transform: translate(-8.7em, 7.6em) rotate(-23deg) scaleX(0) scaleY(0);
+  }
+  100% {
+    transform: translate(-8.7em, 7.6em) rotate(-23deg) scaleX(0) scaleY(0);
+  }
+}
+
+#meteor {
+  animation: meteor 30s linear 0s infinite;
+  z-index: 0;
+  /* transform: translate(-8.5em, 7.5em) rotate(-23deg) scaleX(-0.1) scaleY(0.1); */
+  width: 25em;
+  height: auto;
+  position: absolute;
 }

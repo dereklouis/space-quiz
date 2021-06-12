@@ -62,6 +62,7 @@ function Home() {
           />
         </button>
         <div id="titleBox" className="FCAIC">
+          <img alt="Meteor" src="images/meteor.png" id="meteor" />
           <h1 id="title">
             <span
               ref={letterS}
