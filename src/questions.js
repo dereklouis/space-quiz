@@ -371,3 +371,5 @@ export const questions = [
     questionNumber: 50,
   },
 ];
+
+export const answersArray = questions.map((question) => question.correct);

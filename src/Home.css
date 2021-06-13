@@ -49,7 +49,7 @@ font-family: 'Roboto', sans-serif; */
 
 @keyframes ripple {
   0% {
-    opacity: 0;
+    opacity: 0.3;
     width: 0em;
     height: 0em;
   }

@@ -36,7 +36,7 @@ function Home() {
   const handleClick = (e) => {
     const x = e.clientX - e.target.getBoundingClientRect().left;
     const y = e.clientY - e.target.getBoundingClientRect().top;
-    if (e.target.innerText === 'BEGIN') {
+    if (e.target.innerText === 'BEGIN' || e.target.innerText === 'RESUME') {
       beginRipple.current.style.left = `${x}px`;
       beginRipple.current.style.top = `${y}px`;
       beginRipple.current.className = 'ripple';
@@ -72,7 +72,7 @@ function Home() {
     <div id="appMaster" className="FCAIC">
       <div id="navBar">
         <button className="navButton" onClick={handleClick}>
-          BEGIN
+          {currentSlide >= 1 ? 'RESUME' : 'BEGIN'}
           <span
             ref={beginRipple}
             onAnimationEnd={(e) => resetAnimation(e, beginRipple)}

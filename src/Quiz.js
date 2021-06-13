@@ -1,8 +1,9 @@
 import { useRef, useState } from 'react';
-import { questions } from './questions';
+import { questions, answersArray } from './questions';
 import './styles/quiz.css';
 
 const Quiz = (props) => {
+  const questionPanel = useRef(null);
   const backButton = useRef(null);
   const backRocket = useRef(null);
   const nextButton = useRef(null);
@@ -11,6 +12,8 @@ const Quiz = (props) => {
   const bButtonRipple = useRef(null);
   const cButtonRipple = useRef(null);
   const dButtonRipple = useRef(null);
+  const backButtonMask = useRef(null);
+  const nextButtonMask = useRef(null);
 
   const [userAnswers, setUserAnswers] = useState(
     localStorage.getItem('spaceQuizAnswersArr').split(',')[0] === ''
@@ -19,19 +22,31 @@ const Quiz = (props) => {
   );
 
   const handleBackNext = (e) => {
-    if (e.currentTarget.id === 'backButton') {
-      backButton.current.className = 'backSpin';
-      backRocket.current.className = 'backRocketSpin';
-      props.setCurrentSlide(props.currentSlide - 1);
-    } else {
+    if (props.currentSlide === -1) {
       nextButton.current.className = 'nextSpin';
       nextRocket.current.className = 'nextRocketSpin';
       props.setCurrentSlide(props.currentSlide + 1);
+    } else {
+      if (e.currentTarget.id === 'backButton') {
+        backButton.current.className = 'backSpin';
+        backRocket.current.className = 'backRocketSpin';
+        questionPanel.current.classList.add('questionPanelShrink', 'slideBack');
+      } else {
+        nextButton.current.className = 'nextSpin';
+        nextRocket.current.className = 'nextRocketSpin';
+        questionPanel.current.classList.add('questionPanelShrink', 'slideNext');
+      }
     }
+    backButtonMask.current.classList.remove('displayNone');
+    nextButtonMask.current.classList.remove('displayNone');
   };
 
-  const resetAnimation = (e, ref) => {
+  const resetAnimation = (e, ref, backNext) => {
     ref.current.className = '';
+    if (backNext) {
+      backButtonMask.current.classList.add('displayNone');
+      nextButtonMask.current.classList.add('displayNone');
+    }
   };
 
   const handleAnswer = (e, answer, answerRipple) => {
@@ -92,6 +107,40 @@ const Quiz = (props) => {
     }
   };
 
+  let rightAnswers = 0;
+
+  for (let i = 0; i < userAnswers.length; i++) {
+    if (userAnswers[i] === answersArray[i]) {
+      rightAnswers++;
+    }
+  }
+
+  let currentScore = ((rightAnswers / userAnswers.length) * 100).toFixed(2);
+
+  const QPTransition = (e) => {
+    if (
+      questionPanel.current.classList.contains('questionPanelShrink') &&
+      questionPanel.current.classList.contains('slideBack')
+    ) {
+      props.setCurrentSlide(props.currentSlide - 1);
+      questionPanel.current.classList.remove(
+        'questionPanelShrink',
+        'slideBack'
+      );
+    } else if (
+      questionPanel.current.classList.contains('questionPanelShrink') &&
+      questionPanel.current.classList.contains('slideNext')
+    ) {
+      props.setCurrentSlide(props.currentSlide + 1);
+      questionPanel.current.classList.remove(
+        'questionPanelShrink',
+        'slideNext'
+      );
+    }
+  };
+
+  console.log('p c s', props.currentSlide);
+
   return (
     <div
       id="quizPanel"
@@ -109,7 +158,12 @@ const Quiz = (props) => {
           </ul>
         </div>
       ) : (
-        <div id="questionPanel" className="FCAIC">
+        <div
+          id="questionPanel"
+          className={`FCAIC`}
+          ref={questionPanel}
+          onTransitionEnd={QPTransition}
+        >
           <div id="questionTitleContainer" className="FCAIC">
             <h2 id="questionTitle">{questions[props.currentSlide].question}</h2>
           </div>
@@ -167,38 +221,50 @@ const Quiz = (props) => {
               </button>
             </div>
           </div>
+          <p id="currentScore">{`Current Score: ${
+            isNaN(currentScore) ? 0 : currentScore
+          }%`}</p>
+          <p id="currentQuestion">{`Question ${
+            props.currentSlide + 1
+          } of 50`}</p>
         </div>
       )}
-      <button
-        id="backButton"
-        onClick={handleBackNext}
-        ref={backButton}
-        onAnimationEnd={(e) => resetAnimation(e, backButton)}
-        disabled={props.currentSlide <= -1}
-      >
-        <img
-          alt="Rocket"
-          id="backRocket"
-          src="images/rocket.png"
-          ref={backRocket}
-          onAnimationEnd={(e) => resetAnimation(e, backRocket)}
-        />
-      </button>
-      <button
-        id="nextButton"
-        onClick={handleBackNext}
-        ref={nextButton}
-        onAnimationEnd={(e) => resetAnimation(e, nextButton)}
-        disabled={props.currentSlide >= userAnswers.length}
-      >
-        <img
-          alt="Rocket"
-          id="nextRocket"
-          src="images/rocket.png"
-          ref={nextRocket}
-          onAnimationEnd={(e) => resetAnimation(e, nextRocket)}
-        />
-      </button>
+      <div id="backButtonDiv">
+        <div className="buttonMask displayNone" ref={backButtonMask} />
+        <button
+          id="backButton"
+          onClick={handleBackNext}
+          ref={backButton}
+          onAnimationEnd={(e) => resetAnimation(e, backButton, true)}
+          disabled={props.currentSlide <= -1}
+        >
+          <img
+            alt="Rocket"
+            id="backRocket"
+            src="images/rocket.png"
+            ref={backRocket}
+            onAnimationEnd={(e) => resetAnimation(e, backRocket)}
+          />
+        </button>
+      </div>
+      <div id="nextButtonDiv">
+        <div className="buttonMask displayNone" ref={nextButtonMask} />
+        <button
+          id="nextButton"
+          onClick={handleBackNext}
+          ref={nextButton}
+          onAnimationEnd={(e) => resetAnimation(e, nextButton, true)}
+          disabled={props.currentSlide >= userAnswers.length}
+        >
+          <img
+            alt="Rocket"
+            id="nextRocket"
+            src="images/rocket.png"
+            ref={nextRocket}
+            onAnimationEnd={(e) => resetAnimation(e, nextRocket)}
+          />
+        </button>
+      </div>
     </div>
   );
 };

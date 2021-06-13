@@ -39,7 +39,6 @@
 
 #backButton,
 #nextButton {
-  position: absolute;
   border-radius: 50%;
   width: 5em;
   height: 5em;
@@ -53,12 +52,22 @@
   transition-duration: 1s;
 }
 
-#backButton {
-  transform: translate(-33em, 18em);
+#backButtonDiv {
+  position: absolute;
+  transform: translate(-44em, 24em);
 }
 
-#nextButton {
-  transform: translate(33em, 18em);
+#nextButtonDiv {
+  position: absolute;
+  transform: translate(44em, 24em);
+}
+
+.buttonMask {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 1;
+  border-radius: 50%;
 }
 
 #backButton:disabled,
@@ -79,10 +88,10 @@
 
 @keyframes backSpin {
   0% {
-    transform: translate(-33em, 18em) rotate(0deg);
+    transform: rotate(0deg);
   }
   100% {
-    transform: translate(-33em, 18em) rotate(-360deg);
+    transform: rotate(-360deg);
   }
 }
 
@@ -97,10 +106,10 @@
 
 @keyframes nextSpin {
   0% {
-    transform: translate(33em, 18em) rotate(0deg);
+    transform: rotate(0deg);
   }
   100% {
-    transform: translate(33em, 18em) rotate(360deg);
+    transform: rotate(360deg);
   }
 }
 
@@ -114,24 +123,30 @@
 }
 
 .backSpin {
-  animation: backSpin 2s ease-out 0s 1;
+  animation: backSpin 1.2s ease-out 0s 1;
 }
 
 .backRocketSpin {
-  animation: backRocketSpin 2s ease-out 0s 1;
+  animation: backRocketSpin 1.2s ease-out 0s 1;
 }
 
 .nextSpin {
-  animation: nextSpin 2s ease-out 0s 1;
+  animation: nextSpin 1.2s ease-out 0s 1;
 }
 
 .nextRocketSpin {
-  animation: nextRocketSpin 2s ease-out 0s 1;
+  animation: nextRocketSpin 1.2s ease-out 0s 1;
 }
 
 #questionPanel {
   width: 100%;
   height: 100%;
+  transition-duration: 0.5s;
+}
+
+.questionPanelShrink {
+  transform: scale(0);
+  opacity: 0;
 }
 
 #questionTitleContainer {
@@ -221,13 +236,25 @@
 }
 
 .wrongSelected {
-  border: 0.2em dashed #e27878;
+  border: 0.2em double #e27878;
   color: #d43535;
   background-color: #eeafaf25;
 }
 
 .correctSelected {
-  border: 0.2em dashed #78e27f;
+  border: 0.2em double #78e27f;
   color: #35d440;
   background-color: #afeeb925;
+}
+
+#currentScore {
+  color: #afeeee;
+  margin: auto 0em 0em 0em;
+  font-size: 1.75em;
+}
+
+#currentQuestion {
+  color: #afeeee;
+  margin: 1em 0em 1.25em 0em;
+  font-size: 1.25em;
 }
