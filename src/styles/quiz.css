@@ -4,7 +4,7 @@
   border-radius: 3em;
   width: 100em;
   height: 60em;
-  z-index: 2;
+  z-index: 10;
   background-color: rgba(0, 0, 0, 0.9);
   display: flex;
   flex-direction: column;
@@ -59,6 +59,12 @@
 
 #nextButton {
   transform: translate(33em, 18em);
+}
+
+#backButton:disabled,
+#nextButton:disabled {
+  opacity: 0.5;
+  cursor: default;
 }
 
 #backRocket,
@@ -158,7 +164,7 @@
 .answerButton {
   font-size: 2em;
   line-height: 1.25em;
-  /* padding: 0.25em 1em; */
+  padding: 0.5em 1em;
   font-weight: 300;
   width: 15em;
   height: 7em;
@@ -175,8 +181,12 @@
   overflow: hidden;
 }
 
-.answerButton:hover {
+.answerButton:enabled:hover {
   border: 0.05em solid #afeeee;
+}
+
+.answerButton:disabled {
+  cursor: default;
 }
 
 @keyframes answerRipple {
@@ -198,4 +208,26 @@
   transform: translate(-50%, -50%);
   border-radius: 50%;
   background-color: #fff;
+}
+
+.wrongNotSelected {
+  border: 0.05em solid #e27878;
+  color: #d43535;
+}
+
+.correctNotSelected {
+  border: 0.05em solid #78e27f;
+  color: #35d440;
+}
+
+.wrongSelected {
+  border: 0.2em dashed #e27878;
+  color: #d43535;
+  background-color: #eeafaf25;
+}
+
+.correctSelected {
+  border: 0.2em dashed #78e27f;
+  color: #35d440;
+  background-color: #afeeb925;
 }

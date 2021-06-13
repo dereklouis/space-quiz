@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import { questions } from './questions';
 import './styles/quiz.css';
 
@@ -11,6 +11,12 @@ const Quiz = (props) => {
   const bButtonRipple = useRef(null);
   const cButtonRipple = useRef(null);
   const dButtonRipple = useRef(null);
+
+  const [userAnswers, setUserAnswers] = useState(
+    localStorage.getItem('spaceQuizAnswersArr').split(',')[0] === ''
+      ? []
+      : localStorage.getItem('spaceQuizAnswersArr').split(',')
+  );
 
   const handleBackNext = (e) => {
     if (e.currentTarget.id === 'backButton') {
@@ -34,6 +40,56 @@ const Quiz = (props) => {
     answerRipple.current.style.left = `${x}px`;
     answerRipple.current.style.top = `${y}px`;
     answerRipple.current.className = 'answerRripple';
+    let answersArray = localStorage.getItem('spaceQuizAnswersArr').split(',');
+    console.log('answers array', answersArray);
+    if (answersArray[0] !== '') {
+      answersArray.push(answer);
+    } else {
+      answersArray[0] = answer;
+    }
+    console.log('new answers array', answersArray);
+    localStorage.setItem('spaceQuizAnswersArr', answersArray);
+    setUserAnswers(answersArray);
+  };
+
+  const answerButtonDisabledCheck = () => {
+    if (
+      localStorage.getItem('spaceQuizAnswersArr').split(',')[
+        props.currentSlide
+      ] !== undefined
+    ) {
+      if (
+        localStorage.getItem('spaceQuizAnswersArr').split(',')[
+          props.currentSlide
+        ].length === 1
+      ) {
+        return true;
+      } else {
+        return false;
+      }
+    }
+    return false;
+  };
+
+  const checkRightWrong = (answer) => {
+    if (
+      typeof userAnswers[props.currentSlide] === 'string' &&
+      userAnswers[props.currentSlide] !== ''
+    ) {
+      if (answer === userAnswers[props.currentSlide]) {
+        if (answer === questions[props.currentSlide].correct) {
+          return 'correctSelected';
+        } else {
+          return 'wrongSelected';
+        }
+      } else {
+        if (answer === questions[props.currentSlide].correct) {
+          return 'correctNotSelected';
+        } else {
+          return 'wrongNotSelected';
+        }
+      }
+    }
   };
 
   return (
@@ -60,9 +116,10 @@ const Quiz = (props) => {
           <div id="answerButtonsDiv" className="FCAIC">
             <div className="answerButtonsRow">
               <button
-                className="answerButton"
+                className={`answerButton ${checkRightWrong('a')}`}
                 id="answerA"
-                onClick={(e) => handleAnswer(e, 'A', aButtonRipple)}
+                onClick={(e) => handleAnswer(e, 'a', aButtonRipple)}
+                disabled={answerButtonDisabledCheck()}
               >
                 {questions[props.currentSlide].answers[0]}
                 <span
@@ -71,9 +128,10 @@ const Quiz = (props) => {
                 />
               </button>
               <button
-                className="answerButton"
+                className={`answerButton ${checkRightWrong('b')}`}
                 id="answerB"
-                onClick={(e) => handleAnswer(e, 'B', bButtonRipple)}
+                onClick={(e) => handleAnswer(e, 'b', bButtonRipple)}
+                disabled={answerButtonDisabledCheck()}
               >
                 {questions[props.currentSlide].answers[1]}
                 <span
@@ -84,9 +142,10 @@ const Quiz = (props) => {
             </div>
             <div className="answerButtonsRow">
               <button
-                className="answerButton"
+                className={`answerButton ${checkRightWrong('c')}`}
                 id="answerC"
-                onClick={(e) => handleAnswer(e, 'C', cButtonRipple)}
+                onClick={(e) => handleAnswer(e, 'c', cButtonRipple)}
+                disabled={answerButtonDisabledCheck()}
               >
                 {questions[props.currentSlide].answers[2]}
                 <span
@@ -95,9 +154,10 @@ const Quiz = (props) => {
                 />
               </button>
               <button
-                className="answerButton"
+                className={`answerButton ${checkRightWrong('d')}`}
                 id="answerD"
-                onClick={(e) => handleAnswer(e, 'D', dButtonRipple)}
+                onClick={(e) => handleAnswer(e, 'd', dButtonRipple)}
+                disabled={answerButtonDisabledCheck()}
               >
                 {questions[props.currentSlide].answers[3]}
                 <span
@@ -114,6 +174,7 @@ const Quiz = (props) => {
         onClick={handleBackNext}
         ref={backButton}
         onAnimationEnd={(e) => resetAnimation(e, backButton)}
+        disabled={props.currentSlide <= -1}
       >
         <img
           alt="Rocket"
@@ -128,6 +189,7 @@ const Quiz = (props) => {
         onClick={handleBackNext}
         ref={nextButton}
         onAnimationEnd={(e) => resetAnimation(e, nextButton)}
+        disabled={props.currentSlide >= userAnswers.length}
       >
         <img
           alt="Rocket"

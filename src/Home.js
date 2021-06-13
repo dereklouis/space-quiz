@@ -28,7 +28,9 @@ function Home() {
   const [infoPanelState, setInfoPanelState] = useState(false);
   const [quizStatus, setQuizStatus] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(
-    localStorage.getItem('spaceQuizAnswersArr').split('').length - 1
+    localStorage.getItem('spaceQuizAnswersArr').split(',')[0] === ''
+      ? -1
+      : localStorage.getItem('spaceQuizAnswersArr').split(',').length
   );
 
   const handleClick = (e) => {
