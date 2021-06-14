@@ -13,6 +13,8 @@ import './styles/cometLetterSpin.css';
 function Home() {
   const beginRipple = useRef(null);
   const infoRipple = useRef(null);
+  const restartRipple = useRef(null);
+  const exitRipple = useRef(null);
   const comet = useRef(null);
   const letterS = useRef(null);
   const letterP = useRef(null);
@@ -32,14 +34,19 @@ function Home() {
       ? -1
       : localStorage.getItem('spaceQuizAnswersArr').split(',').length
   );
+  const [userAnswers, setUserAnswers] = useState(
+    localStorage.getItem('spaceQuizAnswersArr').split(',')[0] === ''
+      ? []
+      : localStorage.getItem('spaceQuizAnswersArr').split(',')
+  );
 
-  const handleClick = (e) => {
+  const handleClick = (e, ref) => {
     const x = e.clientX - e.target.getBoundingClientRect().left;
     const y = e.clientY - e.target.getBoundingClientRect().top;
+    ref.current.style.left = `${x}px`;
+    ref.current.style.top = `${y}px`;
+    ref.current.className = 'ripple';
     if (e.target.innerText === 'BEGIN' || e.target.innerText === 'RESUME') {
-      beginRipple.current.style.left = `${x}px`;
-      beginRipple.current.style.top = `${y}px`;
-      beginRipple.current.className = 'ripple';
       if (infoPanelState) {
         setInfoPanelState(false);
       }
@@ -54,10 +61,13 @@ function Home() {
       letterQ.current.className = 'spaceAnimation3';
       letterZ.current.className = 'spaceAnimation3';
     } else if (e.target.innerText === 'INFO') {
-      infoRipple.current.style.left = `${x}px`;
-      infoRipple.current.style.top = `${y}px`;
-      infoRipple.current.className = 'ripple';
       setInfoPanelState(!infoPanelState);
+    } else if (e.target.innerText === 'RESTART') {
+      localStorage.setItem('spaceQuizAnswersArr', []);
+      setUserAnswers([]);
+      setCurrentSlide(-1);
+    } else if (e.target.innerText === 'EXIT') {
+      setQuizStatus(false);
     }
   };
 
@@ -71,13 +81,29 @@ function Home() {
   return (
     <div id="appMaster" className="FCAIC">
       <div id="navBar">
-        <button className="navButton" onClick={handleClick}>
-          {currentSlide >= 1 ? 'RESUME' : 'BEGIN'}
-          <span
-            ref={beginRipple}
-            onAnimationEnd={(e) => resetAnimation(e, beginRipple)}
-          />
-        </button>
+        {quizStatus ? (
+          <button
+            className="navButton"
+            onClick={(e) => handleClick(e, restartRipple)}
+          >
+            RESTART
+            <span
+              ref={restartRipple}
+              onAnimationEnd={(e) => resetAnimation(e, restartRipple)}
+            />
+          </button>
+        ) : (
+          <button
+            className="navButton"
+            onClick={(e) => handleClick(e, beginRipple)}
+          >
+            {currentSlide >= 1 ? 'RESUME' : 'BEGIN'}
+            <span
+              ref={beginRipple}
+              onAnimationEnd={(e) => resetAnimation(e, beginRipple)}
+            />
+          </button>
+        )}
         <div id="titleBox" className="FCAIC">
           <img alt="Meteor" src="images/meteor.png" id="meteor" />
           <h1 id="title">
@@ -139,19 +165,37 @@ function Home() {
             </span>
           </h2>
         </div>
-        <button className="navButton" onClick={handleClick}>
-          INFO
-          <span
-            ref={infoRipple}
-            onAnimationEnd={(e) => resetAnimation(e, infoRipple)}
-          />
-        </button>
+        {quizStatus ? (
+          <button
+            className="navButton"
+            onClick={(e) => handleClick(e, exitRipple)}
+          >
+            EXIT
+            <span
+              ref={exitRipple}
+              onAnimationEnd={(e) => resetAnimation(e, exitRipple)}
+            />
+          </button>
+        ) : (
+          <button
+            className="navButton"
+            onClick={(e) => handleClick(e, infoRipple)}
+          >
+            INFO
+            <span
+              ref={infoRipple}
+              onAnimationEnd={(e) => resetAnimation(e, infoRipple)}
+            />
+          </button>
+        )}
       </div>
       <InfoPanel infoPanel={infoPanel} infoPanelState={infoPanelState} />
       <Quiz
         quizStatus={quizStatus}
         currentSlide={currentSlide}
         setCurrentSlide={setCurrentSlide}
+        userAnswers={userAnswers}
+        setUserAnswers={setUserAnswers}
       />
       <div id="solarSystemContainer" className="FCAIC">
         <img

@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useRef } from 'react';
 import { questions, answersArray } from './questions';
 import './styles/quiz.css';
 
@@ -14,27 +14,28 @@ const Quiz = (props) => {
   const dButtonRipple = useRef(null);
   const backButtonMask = useRef(null);
   const nextButtonMask = useRef(null);
-
-  const [userAnswers, setUserAnswers] = useState(
-    localStorage.getItem('spaceQuizAnswersArr').split(',')[0] === ''
-      ? []
-      : localStorage.getItem('spaceQuizAnswersArr').split(',')
-  );
+  const slideDirection = useRef(null);
 
   const handleBackNext = (e) => {
     if (props.currentSlide === -1) {
       nextButton.current.className = 'nextSpin';
       nextRocket.current.className = 'nextRocketSpin';
       props.setCurrentSlide(props.currentSlide + 1);
+    } else if (props.currentSlide === 50) {
+      backButton.current.className = 'backSpin';
+      backRocket.current.className = 'backRocketSpin';
+      props.setCurrentSlide(props.currentSlide - 1);
     } else {
       if (e.currentTarget.id === 'backButton') {
         backButton.current.className = 'backSpin';
         backRocket.current.className = 'backRocketSpin';
-        questionPanel.current.classList.add('questionPanelShrink', 'slideBack');
+        questionPanel.current.classList.add('questionPanelShrink');
+        slideDirection.current = 'slideBack';
       } else {
         nextButton.current.className = 'nextSpin';
         nextRocket.current.className = 'nextRocketSpin';
-        questionPanel.current.classList.add('questionPanelShrink', 'slideNext');
+        questionPanel.current.classList.add('questionPanelShrink');
+        slideDirection.current = 'slideNext';
       }
     }
     backButtonMask.current.classList.remove('displayNone');
@@ -56,15 +57,13 @@ const Quiz = (props) => {
     answerRipple.current.style.top = `${y}px`;
     answerRipple.current.className = 'answerRripple';
     let answersArray = localStorage.getItem('spaceQuizAnswersArr').split(',');
-    console.log('answers array', answersArray);
     if (answersArray[0] !== '') {
       answersArray.push(answer);
     } else {
       answersArray[0] = answer;
     }
-    console.log('new answers array', answersArray);
     localStorage.setItem('spaceQuizAnswersArr', answersArray);
-    setUserAnswers(answersArray);
+    props.setUserAnswers(answersArray);
   };
 
   const answerButtonDisabledCheck = () => {
@@ -88,10 +87,10 @@ const Quiz = (props) => {
 
   const checkRightWrong = (answer) => {
     if (
-      typeof userAnswers[props.currentSlide] === 'string' &&
-      userAnswers[props.currentSlide] !== ''
+      typeof props.userAnswers[props.currentSlide] === 'string' &&
+      props.userAnswers[props.currentSlide] !== ''
     ) {
-      if (answer === userAnswers[props.currentSlide]) {
+      if (answer === props.userAnswers[props.currentSlide]) {
         if (answer === questions[props.currentSlide].correct) {
           return 'correctSelected';
         } else {
@@ -109,46 +108,54 @@ const Quiz = (props) => {
 
   let rightAnswers = 0;
 
-  for (let i = 0; i < userAnswers.length; i++) {
-    if (userAnswers[i] === answersArray[i]) {
+  for (let i = 0; i < props.userAnswers.length; i++) {
+    if (props.userAnswers[i] === answersArray[i]) {
       rightAnswers++;
     }
   }
 
-  let currentScore = ((rightAnswers / userAnswers.length) * 100).toFixed(2);
+  let currentScore = Math.ceil((rightAnswers / props.userAnswers.length) * 100);
 
   const QPTransition = (e) => {
     if (
       questionPanel.current.classList.contains('questionPanelShrink') &&
-      questionPanel.current.classList.contains('slideBack')
+      slideDirection.current === 'slideBack'
     ) {
       props.setCurrentSlide(props.currentSlide - 1);
-      questionPanel.current.classList.remove(
-        'questionPanelShrink',
-        'slideBack'
-      );
+      questionPanel.current.classList.remove('questionPanelShrink');
     } else if (
       questionPanel.current.classList.contains('questionPanelShrink') &&
-      questionPanel.current.classList.contains('slideNext')
+      slideDirection.current === 'slideNext'
     ) {
       props.setCurrentSlide(props.currentSlide + 1);
-      questionPanel.current.classList.remove(
-        'questionPanelShrink',
-        'slideNext'
-      );
+      questionPanel.current.classList.remove('questionPanelShrink');
     }
   };
 
-  console.log('p c s', props.currentSlide);
+  const finalTitle = () => {
+    if (currentScore === 100) {
+      return 'SPACE MASTER';
+    } else if (currentScore >= 90) {
+      return 'ADMIRAL';
+    } else if (currentScore >= 80) {
+      return 'CAPTAIN';
+    } else if (currentScore >= 70) {
+      return 'LIEUTENANT';
+    } else if (currentScore >= 60) {
+      return 'ENSIGN';
+    } else {
+      return 'SPACE CADET';
+    }
+  };
 
   return (
     <div
       id="quizPanel"
       className={props.quizStatus ? 'panelShow' : 'panelHide'}
     >
-      {props.currentSlide === -1 ? (
+      {props.currentSlide === -1 && (
         <div id="tableOfContents" className="FCAIC">
-          <h2 id="quizContentsTitle">QUIZ CONTENTS:</h2>
+          <h2 id="quizContentsTitle">CONTENTS:</h2>
           <ul id="quizContentsList">
             <li>1 - 10: Classical Astronomy</li>
             <li>11 - 20: Classic NASA</li>
@@ -157,7 +164,8 @@ const Quiz = (props) => {
             <li>41 - 50: Modern Observatories & Exploration</li>
           </ul>
         </div>
-      ) : (
+      )}
+      {props.currentSlide > -1 && props.currentSlide < 50 && (
         <div
           id="questionPanel"
           className={`FCAIC`}
@@ -229,6 +237,21 @@ const Quiz = (props) => {
           } of 50`}</p>
         </div>
       )}
+      {props.currentSlide === 50 && (
+        <div id="completionDiv" className="FCAIC">
+          <h2 id="congrats">CONGRATULATIONS</h2>
+          <p className="finalMiddleLines">
+            ANSWERING <span className="finalNumbers">{rightAnswers} / 50</span>{' '}
+            QUESTIONS CORRECTLY,
+          </p>
+          <p className="finalMiddleLines">
+            WITH AN OVERALL SCORE OF{' '}
+            <span className="finalNumbers">{currentScore}%</span>,
+          </p>
+          <p className="finalMiddleLines">HAS EARNED YOU THE TITLE OF:</p>
+          <p id="finalTitle">{finalTitle()}</p>
+        </div>
+      )}
       <div id="backButtonDiv">
         <div className="buttonMask displayNone" ref={backButtonMask} />
         <button
@@ -254,7 +277,10 @@ const Quiz = (props) => {
           onClick={handleBackNext}
           ref={nextButton}
           onAnimationEnd={(e) => resetAnimation(e, nextButton, true)}
-          disabled={props.currentSlide >= userAnswers.length}
+          disabled={
+            props.currentSlide >= props.userAnswers.length ||
+            props.currentSlide === 50
+          }
         >
           <img
             alt="Rocket"
