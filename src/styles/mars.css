@@ -10,13 +10,16 @@
 #marsOrbit {
   animation: marsOrbit 59s linear 0s infinite;
   background-color: transparent;
-  /* border: 2px dotted rgba(222, 116, 24, 0.5); */
   border-radius: 50%;
   width: 156em;
   height: 156em;
   position: absolute;
   bottom: 0;
   transform: translate(0em, 50%);
+}
+
+.marsOrbitBorder {
+  border: 0.275em dotted rgba(222, 116, 24, 0.5);
 }
 
 @keyframes mars {

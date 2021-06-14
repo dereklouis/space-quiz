@@ -10,13 +10,18 @@
 #earthOrbit {
   animation: earthOrbit 31.5s linear 0s infinite;
   background-color: transparent;
-  /* border: 2px dotted rgba(0, 255, 0, 0.5); */
   border-radius: 50%;
   width: 115em;
   height: 115em;
   position: absolute;
   bottom: 0;
   transform: translate(0em, 50%);
+  z-index: 0;
+}
+
+.earthOrbitBorder {
+  border: 0.275em dotted rgba(0, 255, 0, 0.5);
+  z-index: 0;
 }
 
 @keyframes earth {
@@ -70,13 +75,18 @@
 #moonOrbit {
   animation: moonOrbit 2s linear 0s infinite;
   background-color: transparent;
-  /* border: 2px dotted rgba(122, 0, 128, 0.5); */
   border-radius: 50%;
   width: 20em;
   height: 20em;
   position: absolute;
   top: 0;
   transform: translate(0em, -50%);
+  z-index: 1;
+}
+
+.moonOrbitBorder {
+  border: 0.275em dotted rgba(122, 0, 128, 0.5);
+  z-index: 1;
 }
 
 #moon {

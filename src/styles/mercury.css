@@ -10,13 +10,16 @@
 #mercuryOrbit {
   animation: mercuryOrbit 7.6s linear 0s infinite;
   background-color: transparent;
-  /* border: 2px dotted rgba(255, 0, 0, 0.5); */
   border-radius: 50%;
   width: 62em;
   height: 62em;
   position: absolute;
   bottom: 0;
   transform: translate(0em, 50%);
+}
+
+.mercuryOrbitBorder {
+  border: 0.275em dotted rgba(255, 0, 0, 0.5);
 }
 
 @keyframes mercury {

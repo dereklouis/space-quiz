@@ -39,6 +39,7 @@ function Home() {
       ? []
       : localStorage.getItem('spaceQuizAnswersArr').split(',')
   );
+  const [orbitRingStatus, setOrbitRingStatus] = useState(false);
 
   const handleClick = (e, ref) => {
     const x = e.clientX - e.target.getBoundingClientRect().left;
@@ -73,13 +74,45 @@ function Home() {
 
   const resetAnimation = (e, ref) => {
     ref.current.className = '';
-    if (ref.current.id === 'comet') {
+    if (ref.current.className === 'comet') {
       setQuizStatus(true);
     }
   };
 
+  const masterClick = (e) => {
+    console.log(e.target.id);
+    const planetIds = ['sun'];
+    if (!quizStatus) {
+      if (infoPanelState) {
+        const idsInsideInfoPanel = [
+          '',
+          'infoPanelTitle',
+          'mainUL',
+          'infoPanel',
+        ];
+        if (!idsInsideInfoPanel.includes(e.target.id)) {
+          setInfoPanelState(false);
+        }
+      }
+      if (planetIds) {
+        return false;
+      }
+    }
+  };
+
   return (
-    <div id="appMaster" className="FCAIC">
+    <div id="appMaster" className="FCAIC" onClick={masterClick}>
+      <div id="ORTDiv" className="FCAIC">
+        <button
+          id="orbitalRingsToggle"
+          className="FCAIC"
+          onClick={(e) => setOrbitRingStatus(!orbitRingStatus)}
+        ></button>
+        <div id="ORT2" />
+        <div id="ORT3" />
+        <div id="ORT4" />
+        <div id="ORT5" />
+      </div>
       <div id="navBar">
         {quizStatus ? (
           <button
@@ -205,20 +238,32 @@ function Home() {
           ref={comet}
           onAnimationEnd={(e) => resetAnimation(e, comet)}
         />
-        <div id="jupiterOrbit" className="FCAIC">
+        <div
+          id="jupiterOrbit"
+          className={`FCAIC ${orbitRingStatus && 'jupiterOrbitBorder'}`}
+        >
           <div id="jupiterShadowBox" className="FCAIC">
             <div id="jupiterShadow" />
             <img alt="Jupiter" id="jupiter" src="images/jupiter.png" />
           </div>
         </div>
-        <div id="marsOrbit" className="FCAIC">
+        <div
+          id="marsOrbit"
+          className={`FCAIC ${orbitRingStatus && 'marsOrbitBorder'}`}
+        >
           <div id="marsShadowBox" className="FCAIC">
             <div id="marsShadow" />
             <img alt="Mars" id="mars" src="images/mars.png" />
           </div>
         </div>
-        <div id="earthOrbit" className="FCAIC">
-          <div id="moonOrbit" className="FCAIC">
+        <div
+          id="earthOrbit"
+          className={`FCAIC ${orbitRingStatus && 'earthOrbitBorder'}`}
+        >
+          <div
+            id="moonOrbit"
+            className={`FCAIC ${orbitRingStatus && 'moonOrbitBorder'}`}
+          >
             <div id="moonShadowBox" className="FCAIC">
               <div id="moonShadow" />
               <img alt="Moon" id="moon" src="images/moon.png" />
@@ -229,19 +274,28 @@ function Home() {
             <img alt="Earth" id="earth" src="images/earth.png" />
           </div>
         </div>
-        <div id="venusOrbit" className="FCAIC">
+        <div
+          id="venusOrbit"
+          className={`FCAIC ${orbitRingStatus && 'venusOrbitBorder'}`}
+        >
           <div id="venusShadowBox" className="FCAIC">
             <div id="venusShadow" />
             <img alt="Venus" id="venus" src="images/venus.png" />
           </div>
         </div>
-        <div id="mercuryOrbit" className="FCAIC">
-          <div id="venusShadowBox" className="FCAIC">
+        <div
+          id="mercuryOrbit"
+          className={`FCAIC ${orbitRingStatus && 'mercuryOrbitBorder'}`}
+        >
+          <div id="mercuryShadowBox" className="FCAIC">
             <div id="mercuryShadow" />
             <img alt="Mercury" id="mercury" src="images/mercury.png" />
           </div>
         </div>
-        <div id="sunBox">
+        <div id="sunBox" className="FCAIC">
+          <div id="venusClickBox" />
+          <div id="mercuryClickBox" />
+          <div id="sunClickBox" />
           <img alt="Sun" id="sun" src="images/the-sun.png" />
         </div>
       </div>

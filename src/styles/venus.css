@@ -10,13 +10,16 @@
 #venusOrbit {
   animation: venusOrbit 19s linear 0s infinite;
   background-color: transparent;
-  /* border: 2px dotted rgba(0, 0, 255, 0.5); */
   border-radius: 50%;
   width: 79em;
   height: 79em;
   position: absolute;
   bottom: 0;
   transform: translate(0em, 50%);
+}
+
+.venusOrbitBorder {
+  border: 0.275em dotted #f5c73c80;
 }
 
 @keyframes venus {

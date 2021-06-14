@@ -10,13 +10,16 @@
 #jupiterOrbit {
   animation: jupiterOrbit 378.6s linear 0s infinite;
   background-color: transparent;
-  /* border: 2px dotted rgba(24, 222, 202, 0.5); */
   border-radius: 50%;
   width: 195em;
   height: 195em;
   position: absolute;
   bottom: 0;
   transform: translate(0em, 50%);
+}
+
+.jupiterOrbitBorder {
+  border: 0.275em dotted rgba(24, 222, 202, 0.5);
 }
 
 @keyframes jupiter {

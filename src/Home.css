@@ -18,6 +18,7 @@ font-family: 'Roboto', sans-serif; */
   background-color: black;
   font-size: 10px;
   position: relative;
+  overflow: hidden;
 }
 
 #navBar {
@@ -135,4 +136,79 @@ font-family: 'Roboto', sans-serif; */
   height: auto;
   position: absolute;
   opacity: 0;
+}
+
+@keyframes ORTClockwise {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+#ORTDiv {
+  position: absolute;
+  top: 0;
+  right: 0;
+  justify-content: center;
+  transform: translate(-2em, 2em);
+  width: 5.5em;
+  height: 5.5em;
+  z-index: 5;
+  opacity: 0.5;
+  transition-duration: 0.75s;
+}
+
+#ORTDiv:hover {
+  opacity: 1;
+}
+
+#orbitalRingsToggle {
+  position: absolute;
+  border-radius: 50%;
+  cursor: pointer;
+  padding: 0em;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  border: 0.15em dotted rgba(24, 222, 202, 0.5);
+  z-index: 10;
+  animation: ORTClockwise 37.8s linear 0s infinite;
+}
+
+#ORT2 {
+  position: absolute;
+  border: 0.2em dotted rgba(222, 116, 24, 0.5);
+  border-radius: 50%;
+  width: 4em;
+  height: 4em;
+  animation: ORTClockwise 5.9s linear 0s infinite;
+}
+
+#ORT3 {
+  position: absolute;
+  border: 0.2em dotted rgba(0, 255, 0, 0.5);
+  border-radius: 50%;
+  width: 3em;
+  height: 3em;
+  animation: ORTClockwise 3.15s linear 0s infinite;
+}
+
+#ORT4 {
+  position: absolute;
+  border: 0.2em dotted #f5c73c80;
+  border-radius: 50%;
+  width: 2em;
+  height: 2em;
+  animation: ORTClockwise 1.9s linear 0s infinite;
+}
+
+#ORT5 {
+  position: absolute;
+  border: 0.2em dotted rgba(255, 0, 0, 0.5);
+  border-radius: 50%;
+  width: 1em;
+  height: 1em;
+  animation: ORTClockwise 0.76s linear 0s infinite;
 }

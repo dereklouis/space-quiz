@@ -2,7 +2,8 @@
   transform: translate(0em, 50%);
   position: absolute;
   bottom: 0;
-  z-index: 5;
+  z-index: 0;
+  justify-content: center;
 }
 
 @keyframes sun {
@@ -18,4 +19,28 @@
   animation: sun 21.6s linear 0s infinite;
   width: 70em;
   height: auto;
+}
+
+#sunClickBox {
+  position: absolute;
+  z-index: 15;
+  width: 52em;
+  height: 52em;
+  border-radius: 50%;
+}
+
+#mercuryClickBox {
+  position: absolute;
+  z-index: 15;
+  width: 62.5em;
+  height: 62.5em;
+  border-radius: 50%;
+}
+
+#venusClickBox {
+  position: absolute;
+  z-index: 15;
+  width: 79.5em;
+  height: 79.5em;
+  border-radius: 50%;
 }
