@@ -14,6 +14,17 @@
   transition-duration: 1s;
 }
 
+#planetaryInfoContainer {
+  z-index: 3;
+}
+
+#planetSurface {
+  position: absolute;
+  opacity: 0.15;
+  min-height: 65em;
+  width: auto;
+}
+
 #planetaryInfoTitle {
   color: #afeeee;
   font-size: 6em;

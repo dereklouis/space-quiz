@@ -15,11 +15,18 @@ const PlanetaryInfo = (props) => {
       ref={props.planetaryInfoPanel}
       onTransitionEnd={resetPlanetaryInfoState}
     >
+      <img
+        alt={planetClickKey[props.planetaryInfoSelector]}
+        src={`images/${planetClickKey[props.planetaryInfoSelector]}Surface.jpg`}
+        id="planetSurface"
+      />
       {props.planetaryInfoSelector !== '' && (
-        <>
+        <div id="planetaryInfoContainer">
           <img
             alt={planetClickKey[props.planetaryInfoSelector]}
-            src={`images/${planetClickKey[props.planetaryInfoSelector]}.png`}
+            src={`images/${
+              planetClickKey[props.planetaryInfoSelector]
+            }Side.png`}
             id="planetaryFactsImage"
           />
           <ul id="planetaryFactsUl">
@@ -81,7 +88,7 @@ const PlanetaryInfo = (props) => {
               </li>
             )}
           </ul>
-        </>
+        </div>
       )}
     </div>
   );
