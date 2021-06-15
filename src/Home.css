@@ -48,6 +48,15 @@ font-family: 'Roboto', sans-serif; */
   position: relative;
 }
 
+.navButton:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.navButton:enabled:hover {
+  border: 0.05em solid #afeeee;
+}
+
 @keyframes ripple {
   0% {
     opacity: 0.3;
@@ -67,10 +76,6 @@ font-family: 'Roboto', sans-serif; */
   transform: translate(-50%, -50%);
   border-radius: 50%;
   background-color: #fff;
-}
-
-.navButton:hover {
-  border: 0.05em solid #afeeee;
 }
 
 #titleBox {

@@ -53,6 +53,9 @@ function Home() {
       if (infoPanelState) {
         setInfoPanelState(false);
       }
+      if (planetaryInfoSelector !== '') {
+        setPlanetaryInfoSelector('');
+      }
       comet.current.className = 'cometAnimation';
       letterA.current.className = 'spaceAnimation1';
       letterP.current.className = 'spaceAnimation2';
@@ -78,14 +81,13 @@ function Home() {
   };
 
   const resetAnimation = (e, ref) => {
-    ref.current.className = '';
-    if (ref.current.className === 'comet') {
+    if (ref.current.className === 'cometAnimation') {
       setQuizStatus(true);
     }
+    ref.current.className = '';
   };
 
   const masterClick = (e) => {
-    console.log(e.target.id);
     const planetIds = [
       'sunClickBox',
       'mercuryClickBox',
@@ -156,6 +158,7 @@ function Home() {
           <button
             className="navButton"
             onClick={(e) => handleClick(e, restartRipple)}
+            disabled={userAnswers.length === 0}
           >
             RESTART
             <span
