@@ -2,10 +2,18 @@ import './styles/PlanetaryInfo.css';
 import { planetClickKey, planetInfoObject } from './planetInfo';
 
 const PlanetaryInfo = (props) => {
+  const resetPlanetaryInfoState = (e) => {
+    if (e.target.className === 'panelHide') {
+      props.setPlanetaryInfoSelector('');
+    }
+  };
+
   return (
     <div
       id="planetaryInfoPanel"
       className={props.planetaryInfoSelector === '' ? 'panelHide' : 'panelShow'}
+      ref={props.planetaryInfoPanel}
+      onTransitionEnd={resetPlanetaryInfoState}
     >
       {props.planetaryInfoSelector !== '' && (
         <>
@@ -14,10 +22,13 @@ const PlanetaryInfo = (props) => {
             src={`images/${planetClickKey[props.planetaryInfoSelector]}.png`}
             id="planetaryFactsImage"
           />
-          <h2 id="planetaryInfoTitle">
-            {planetInfoObject[planetClickKey[props.planetaryInfoSelector]].name}
-          </h2>
           <ul id="planetaryFactsUl">
+            <h2 id="planetaryInfoTitle">
+              {
+                planetInfoObject[planetClickKey[props.planetaryInfoSelector]]
+                  .name
+              }
+            </h2>
             <li className="planetFact">
               Diameter:
               <span className="planetFactSpan">

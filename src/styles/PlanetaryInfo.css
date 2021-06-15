@@ -8,7 +8,7 @@
   background-color: rgba(0, 0, 0, 0.9);
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   overflow: hidden;
   transition-duration: 1s;
@@ -16,30 +16,31 @@
 
 #planetaryInfoTitle {
   color: #afeeee;
-  font-size: 5em;
-  margin: 1em 0em auto 0em;
-  letter-spacing: 0.1em;
+  font-size: 6em;
+  margin: 0em 0em 1.5em 0em;
+  letter-spacing: 0.2em;
 }
 
 #planetaryFactsUl {
-  margin: 0em 0em auto 0em;
+  margin: 5em 0em 0em 5em;
 }
 
 .planetFact {
   color: white;
   font-size: 2.25em;
-  margin: 1em 0em;
+  margin: 2em 0em;
 }
 
 #planetaryFactsImage {
   position: absolute;
-  width: 20em;
+  width: 45em;
   height: auto;
   top: 0;
-  left: 0;
-  transform: translate(3.5em, 3.5em);
+  right: 0;
+  transform: translate(-3.5em, 3.5em);
 }
 
 .planetFactSpan {
   margin: 0em 0em 0em 2em;
+  color: #35d4d4;
 }

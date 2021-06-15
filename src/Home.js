@@ -27,6 +27,7 @@ function Home() {
   const letterI = useRef(null);
   const letterZ = useRef(null);
   const infoPanel = useRef(null);
+  const planetaryInfoPanel = useRef(null);
 
   const [infoPanelState, setInfoPanelState] = useState(false);
   const [quizStatus, setQuizStatus] = useState(false);
@@ -134,7 +135,7 @@ function Home() {
           'orbitalRingsToggle',
         ];
         if (!idsToNotClosePlanetaryFactsPanel.includes(e.target.id)) {
-          setPlanetaryInfoSelector('');
+          planetaryInfoPanel.current.className = 'panelHide';
         }
       }
     }
@@ -264,7 +265,11 @@ function Home() {
         )}
       </div>
       <InfoPanel infoPanel={infoPanel} infoPanelState={infoPanelState} />
-      <PlanetaryInfo planetaryInfoSelector={planetaryInfoSelector} />
+      <PlanetaryInfo
+        planetaryInfoSelector={planetaryInfoSelector}
+        setPlanetaryInfoSelector={setPlanetaryInfoSelector}
+        planetaryInfoPanel={planetaryInfoPanel}
+      />
       <Quiz
         quizStatus={quizStatus}
         currentSlide={currentSlide}
