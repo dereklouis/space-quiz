@@ -1,6 +1,7 @@
 import { useState, useRef } from 'react';
 import Quiz from './Quiz';
 import InfoPanel from './InfoPanel';
+import PlanetaryInfo from './PlanetaryInfo';
 import './Home.css';
 import './styles/sun.css';
 import './styles/mercury.css';
@@ -40,6 +41,7 @@ function Home() {
       : localStorage.getItem('spaceQuizAnswersArr').split(',')
   );
   const [orbitRingStatus, setOrbitRingStatus] = useState(false);
+  const [planetaryInfoSelector, setPlanetaryInfoSelector] = useState('');
 
   const handleClick = (e, ref) => {
     const x = e.clientX - e.target.getBoundingClientRect().left;
@@ -62,6 +64,9 @@ function Home() {
       letterQ.current.className = 'spaceAnimation3';
       letterZ.current.className = 'spaceAnimation3';
     } else if (e.target.innerText === 'INFO') {
+      if (planetaryInfoSelector !== '') {
+        setPlanetaryInfoSelector('');
+      }
       setInfoPanelState(!infoPanelState);
     } else if (e.target.innerText === 'RESTART') {
       localStorage.setItem('spaceQuizAnswersArr', []);
@@ -81,21 +86,54 @@ function Home() {
 
   const masterClick = (e) => {
     console.log(e.target.id);
-    const planetIds = ['sun'];
+    const planetIds = [
+      'sunClickBox',
+      'mercuryClickBox',
+      'venusClickBox',
+      'venusShadow',
+      'venusShadowBox',
+      'earthOrbit',
+      'earthShadow',
+      'earthShadowBox',
+      'moonOrbit',
+      'moonShadow',
+      'moonShadowBox',
+      'marsOrbit',
+      'marsShadow',
+      'marsShadowBox',
+      'jupiterOrbit',
+      'jupiterShadow',
+      'jupiterShadowBox',
+    ];
     if (!quizStatus) {
       if (infoPanelState) {
-        const idsInsideInfoPanel = [
+        const idsToNotCloseInfoPanel = [
           '',
           'infoPanelTitle',
           'mainUL',
           'infoPanel',
+          'orbitalRingsToggle',
         ];
-        if (!idsInsideInfoPanel.includes(e.target.id)) {
+        if (!idsToNotCloseInfoPanel.includes(e.target.id)) {
           setInfoPanelState(false);
         }
-      }
-      if (planetIds) {
-        return false;
+      } else if (
+        planetaryInfoSelector === '' &&
+        planetIds.includes(e.target.id)
+      ) {
+        setPlanetaryInfoSelector(e.target.id);
+      } else if (planetaryInfoSelector !== '') {
+        const idsToNotClosePlanetaryFactsPanel = [
+          '',
+          'planetaryInfoPanel',
+          'planetaryInfoTitle',
+          'planetaryFactsUl',
+          'planetaryFactsImage',
+          'orbitalRingsToggle',
+        ];
+        if (!idsToNotClosePlanetaryFactsPanel.includes(e.target.id)) {
+          setPlanetaryInfoSelector('');
+        }
       }
     }
   };
@@ -223,6 +261,7 @@ function Home() {
         )}
       </div>
       <InfoPanel infoPanel={infoPanel} infoPanelState={infoPanelState} />
+      <PlanetaryInfo planetaryInfoSelector={planetaryInfoSelector} />
       <Quiz
         quizStatus={quizStatus}
         currentSlide={currentSlide}
@@ -296,7 +335,7 @@ function Home() {
           <div id="venusClickBox" />
           <div id="mercuryClickBox" />
           <div id="sunClickBox" />
-          <img alt="Sun" id="sun" src="images/the-sun.png" />
+          <img alt="Sun" id="sun" src="images/sun.png" />
         </div>
       </div>
     </div>

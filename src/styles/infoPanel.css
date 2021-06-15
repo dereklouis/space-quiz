@@ -15,9 +15,10 @@
 }
 
 #infoPanelTitle {
-  color: white;
+  color: #afeeee;
   font-size: 4em;
   margin: 1em 0em 0.5em 0em;
+  letter-spacing: 0.1em;
 }
 
 #mainUL {

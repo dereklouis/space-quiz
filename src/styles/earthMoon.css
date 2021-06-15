@@ -16,12 +16,10 @@
   position: absolute;
   bottom: 0;
   transform: translate(0em, 50%);
-  z-index: 0;
 }
 
 .earthOrbitBorder {
   border: 0.275em dotted rgba(0, 255, 0, 0.5);
-  z-index: 0;
 }
 
 @keyframes earth {
@@ -81,12 +79,10 @@
   position: absolute;
   top: 0;
   transform: translate(0em, -50%);
-  z-index: 1;
 }
 
 .moonOrbitBorder {
   border: 0.275em dotted rgba(122, 0, 128, 0.5);
-  z-index: 1;
 }
 
 #moon {
