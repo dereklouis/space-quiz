@@ -1,14 +1,16 @@
 @keyframes comet {
   0% {
-    transform: translate(0vw, -20vh) rotate(68deg) scale(1);
+    transform: translate(0vw, -25rem) rotate(68deg) scale(1);
   }
   100% {
-    transform: translate(0vw, 120vh) rotate(68deg) scale(0.1);
+    transform: translate(0vw, 125vh) rotate(68deg) scale(0.1);
   }
 }
 
 #comet {
-  transform: translate(0em, -20vh) rotate(66deg);
+  width: 27rem;
+  height: auto;
+  transform: translate(0rem, -25rem) rotate(66deg);
 }
 
 .cometAnimation {

@@ -1,9 +1,9 @@
 #planetaryInfoPanel {
   position: absolute;
-  border: 0.05em solid #afeeee;
-  border-radius: 3em;
-  width: 100em;
-  height: 60em;
+  border: 0.05rem solid #afeeee;
+  border-radius: 3rem;
+  width: 100rem;
+  height: 60rem;
   z-index: 2;
   background-color: rgba(0, 0, 0, 0.9);
   display: flex;
@@ -21,37 +21,37 @@
 #planetSurface {
   position: absolute;
   opacity: 0.15;
-  min-height: 65em;
+  min-height: 65rem;
   width: auto;
 }
 
 #planetaryInfoTitle {
   color: #afeeee;
-  font-size: 6em;
-  margin: 0em 0em 1.5em 0em;
-  letter-spacing: 0.2em;
+  font-size: 6rem;
+  margin: 0rem 0rem 9rem 0rem;
+  letter-spacing: 0.6rem;
 }
 
 #planetaryFactsUl {
-  margin: 5em 0em 0em 5em;
+  margin: 5rem 0rem 0rem 5rem;
 }
 
 .planetFact {
   color: white;
-  font-size: 2.25em;
-  margin: 2em 0em;
+  font-size: 2.25rem;
+  margin: 4.5rem 0rem;
 }
 
 #planetaryFactsImage {
   position: absolute;
-  width: 45em;
+  width: 45rem;
   height: auto;
   top: 0;
   right: 0;
-  transform: translate(-3.5em, 3.5em);
+  transform: translate(-3.5rem, 3.5rem);
 }
 
 .planetFactSpan {
-  margin: 0em 0em 0em 2em;
+  margin: 0rem 0rem 0rem 2rem;
   color: #35d4d4;
 }

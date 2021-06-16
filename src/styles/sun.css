@@ -1,5 +1,5 @@
 #sunBox {
-  transform: translate(0em, 50%);
+  transform: translate(0rem, 50%);
   position: absolute;
   bottom: 0;
   z-index: 0;
@@ -17,30 +17,30 @@
 
 #sun {
   animation: sun 21.6s linear 0s infinite;
-  width: 70em;
+  width: 70rem;
   height: auto;
 }
 
 #sunClickBox {
   position: absolute;
   z-index: 15;
-  width: 52em;
-  height: 52em;
+  width: 52rem;
+  height: 52rem;
   border-radius: 50%;
 }
 
 #mercuryClickBox {
   position: absolute;
   z-index: 15;
-  width: 62.5em;
-  height: 62.5em;
+  width: 62.5rem;
+  height: 62.5rem;
   border-radius: 50%;
 }
 
 #venusClickBox {
   position: absolute;
   z-index: 15;
-  width: 79.5em;
-  height: 79.5em;
+  width: 79.5rem;
+  height: 79.5rem;
   border-radius: 50%;
 }

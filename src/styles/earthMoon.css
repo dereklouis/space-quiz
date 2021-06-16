@@ -1,9 +1,9 @@
 @keyframes earthOrbit {
   0% {
-    transform: translate(0em, 50%) rotate(0deg);
+    transform: translate(0rem, 50%) rotate(0deg);
   }
   100% {
-    transform: translate(0em, 50%) rotate(360deg);
+    transform: translate(0rem, 50%) rotate(360deg);
   }
 }
 
@@ -11,15 +11,15 @@
   animation: earthOrbit 31.5s linear 0s infinite;
   background-color: transparent;
   border-radius: 50%;
-  width: 115em;
-  height: 115em;
+  width: 115rem;
+  height: 115rem;
   position: absolute;
   bottom: 0;
-  transform: translate(0em, 50%);
+  transform: translate(0rem, 50%);
 }
 
 .earthOrbitBorder {
-  border: 0.275em dotted rgba(0, 255, 0, 0.5);
+  border: 0.275rem dotted rgba(0, 255, 0, 0.5);
 }
 
 @keyframes earth {
@@ -33,23 +33,23 @@
 
 #earth {
   animation: earth 0.86s linear 0s infinite;
-  width: 10em;
-  height: 10em;
+  width: 10rem;
+  height: 10rem;
   transform: translate(0%, 50px);
   z-index: 1;
 }
 
 #earthShadowBox {
-  transform: translate(0em, -50%);
-  width: 10em;
-  height: 10em;
+  transform: translate(0rem, -50%);
+  width: 10rem;
+  height: 10rem;
   justify-content: center;
 }
 
 #earthShadow {
   z-index: 2;
-  width: 10em;
-  height: 10em;
+  width: 10rem;
+  height: 10rem;
   position: absolute;
   background: linear-gradient(
     0deg,
@@ -57,16 +57,16 @@
     rgba(0, 0, 0, 0.75),
     black
   );
-  box-shadow: 0em 0.1em 0.3em 0.2em rgb(0, 0, 0);
+  box-shadow: 0rem 0.1rem 0.3rem 0.2rem rgb(0, 0, 0);
   border-radius: 50%;
 }
 
 @keyframes moonOrbit {
   0% {
-    transform: translate(0em, -50%) rotate(0deg);
+    transform: translate(0rem, -50%) rotate(0deg);
   }
   100% {
-    transform: translate(0em, -50%) rotate(360deg);
+    transform: translate(0rem, -50%) rotate(360deg);
   }
 }
 
@@ -74,27 +74,27 @@
   animation: moonOrbit 2s linear 0s infinite;
   background-color: transparent;
   border-radius: 50%;
-  width: 20em;
-  height: 20em;
+  width: 20rem;
+  height: 20rem;
   position: absolute;
   top: 0;
-  transform: translate(0em, -50%);
+  transform: translate(0rem, -50%);
 }
 
 .moonOrbitBorder {
-  border: 0.275em dotted rgba(122, 0, 128, 0.5);
+  border: 0.275rem dotted rgba(122, 0, 128, 0.5);
 }
 
 #moon {
-  width: 3em;
-  height: 3em;
+  width: 3rem;
+  height: 3rem;
   z-index: 1;
 }
 
 #moonShadowBox {
-  transform: translate(0em, -50%);
-  width: 3em;
-  height: 3em;
+  transform: translate(0rem, -50%);
+  width: 3rem;
+  height: 3rem;
   justify-content: center;
 }
 
@@ -110,8 +110,8 @@
 #moonShadow {
   animation: moonShadow 2s linear 0s infinite;
   z-index: 2;
-  width: 3em;
-  height: 3em;
+  width: 3rem;
+  height: 3rem;
   position: absolute;
   background: linear-gradient(
     0deg,
@@ -119,6 +119,6 @@
     rgba(0, 0, 0, 0.75),
     black
   );
-  box-shadow: 0em 0.1em 0.3em 0.2em rgb(0, 0, 0);
+  box-shadow: 0rem 0.1rem 0.3rem 0.2rem rgb(0, 0, 0);
   border-radius: 50%;
 }

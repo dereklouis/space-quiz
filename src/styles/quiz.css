@@ -1,9 +1,9 @@
 #quizPanel {
   position: absolute;
-  border: 0.05em solid #afeeee;
-  border-radius: 3em;
-  width: 100em;
-  height: 60em;
+  border: 0.05rem solid #afeeee;
+  border-radius: 3rem;
+  width: 100rem;
+  height: 60rem;
   z-index: 10;
   background-color: rgba(0, 0, 0, 0.9);
   display: flex;
@@ -21,45 +21,45 @@
 
 #quizContentsTitle {
   color: white;
-  font-size: 5em;
-  margin: 1em 0em 0.5em 0em;
-  letter-spacing: 0.1em;
+  font-size: 5rem;
+  margin: 5rem 0rem 2.5rem 0rem;
+  letter-spacing: 0.5rem;
   color: #78e2e2;
 }
 
 #quizContentsList {
   color: #afeeee;
-  font-size: 2.5em;
+  font-size: 2.5rem;
   font-weight: 100;
 }
 
 #quizContentsList li {
-  margin: 1.5em 0em;
+  margin: 3.75rem 0rem;
 }
 
 #backButton,
 #nextButton {
   border-radius: 50%;
-  width: 5em;
-  height: 5em;
+  width: 7rem;
+  height: 7rem;
   cursor: pointer;
   background-color: transparent;
-  border-top: 0.2em solid #afeeee;
-  border-left: 0.2em solid #afeeee;
-  border-right: 0.2em solid rgba(255, 255, 255, 0.5);
-  border-bottom: 0.2em solid rgba(255, 255, 255, 0.5);
+  border-top: 0.2rem solid #afeeee;
+  border-left: 0.2rem solid #afeeee;
+  border-right: 0.2rem solid rgba(255, 255, 255, 0.5);
+  border-bottom: 0.2rem solid rgba(255, 255, 255, 0.5);
   overflow: hidden;
   transition-duration: 1s;
 }
 
 #backButtonDiv {
   position: absolute;
-  transform: translate(-44em, 24em);
+  transform: translate(-44rem, 24rem);
 }
 
 #nextButtonDiv {
   position: absolute;
-  transform: translate(44em, 24em);
+  transform: translate(44rem, 24rem);
 }
 
 .buttonMask {
@@ -78,7 +78,7 @@
 
 #backRocket,
 #nextRocket {
-  width: 65%;
+  width: 3rem;
   height: auto;
 }
 
@@ -156,17 +156,17 @@
 
 #questionTitle {
   color: white;
-  font-size: 2em;
-  margin: 2em 0em 0em 0em;
-  letter-spacing: 0.1em;
-  line-height: 1.6em;
+  font-size: 2rem;
+  margin: 4rem 0rem 0rem 0rem;
+  letter-spacing: 0.2rem;
+  line-height: 3.2rem;
   color: #78e2e2;
 }
 
 #answerButtonsDiv {
   width: 70%;
   height: 55%;
-  margin: auto 0em;
+  margin: auto 0rem;
   justify-content: space-between;
 }
 
@@ -177,26 +177,26 @@
 }
 
 .answerButton {
-  font-size: 2em;
-  line-height: 1.25em;
-  padding: 0.5em 1em;
+  font-size: 2rem;
+  line-height: 2.5rem;
+  padding: 1rem 2rem;
   font-weight: 300;
-  width: 15em;
-  height: 7em;
-  border-radius: 1em;
-  border: 0.05em solid rgba(255, 255, 255, 0.5);
+  width: 30rem;
+  height: 14rem;
+  border-radius: 2rem;
+  border: 0.1rem solid rgba(255, 255, 255, 0.5);
   background-color: transparent;
   color: #78e2e2;
   cursor: pointer;
   transition-duration: 0.5s;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.2rem;
   overflow: hidden;
   position: relative;
   text-align: center;
 }
 
 .answerButton:enabled:hover {
-  border: 0.05em solid #afeeee;
+  border: 0.05rem solid #afeeee;
 }
 
 .answerButton:disabled {
@@ -206,13 +206,13 @@
 @keyframes answerRipple {
   0% {
     opacity: 0.3;
-    width: 0em;
-    height: 0em;
+    width: 0rem;
+    height: 0rem;
   }
   100% {
     opacity: 0;
-    width: 45em;
-    height: 45em;
+    width: 75rem;
+    height: 75rem;
   }
 }
 
@@ -225,37 +225,37 @@
 }
 
 .wrongNotSelected {
-  border: 0.05em solid #e27878;
+  border: 0.05rem solid #e27878;
   color: #d43535;
 }
 
 .correctNotSelected {
-  border: 0.05em solid #78e27f;
+  border: 0.05rem solid #78e27f;
   color: #35d440;
 }
 
 .wrongSelected {
-  border: 0.2em double #e27878;
+  border: 0.2rem double #e27878;
   color: #d43535;
   background-color: #eeafaf25;
 }
 
 .correctSelected {
-  border: 0.2em double #78e27f;
+  border: 0.2rem double #78e27f;
   color: #35d440;
   background-color: #afeeb925;
 }
 
 #currentScore {
   color: #afeeee;
-  margin: auto 0em 0em 0em;
-  font-size: 1.75em;
+  font-size: 1.75rem;
+  margin: auto 0rem 0rem 0rem;
 }
 
 #currentQuestion {
   color: #afeeee;
-  margin: 1em 0em 1.25em 0em;
-  font-size: 1.25em;
+  font-size: 1.25rem;
+  margin: 1rem 0rem 1.25rem 0rem;
 }
 
 #completionDiv {
@@ -265,22 +265,22 @@
 
 #congrats {
   color: #afeeee;
-  font-size: 4.5em;
-  letter-spacing: 0.1em;
-  margin: 1.5em 0em;
+  font-size: 4.5rem;
+  letter-spacing: 0.45rem;
+  margin: 6.75rem 0rem;
 }
 
 .finalMiddleLines {
   color: #afeeee;
-  font-size: 2em;
+  font-size: 2rem;
 }
 
 #finalTitle {
   color: #209797;
-  font-size: 4em;
+  font-size: 4rem;
   font-weight: 500;
-  letter-spacing: 0.2em;
-  margin: auto 0em;
+  letter-spacing: 0.8rem;
+  margin: auto 0rem;
 }
 
 .finalNumbers {

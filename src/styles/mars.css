@@ -1,9 +1,9 @@
 @keyframes marsOrbit {
   0% {
-    transform: translate(0em, 50%) rotate(-45deg);
+    transform: translate(0rem, 50%) rotate(-45deg);
   }
   100% {
-    transform: translate(0em, 50%) rotate(315deg);
+    transform: translate(0rem, 50%) rotate(315deg);
   }
 }
 
@@ -11,15 +11,15 @@
   animation: marsOrbit 59s linear 0s infinite;
   background-color: transparent;
   border-radius: 50%;
-  width: 156em;
-  height: 156em;
+  width: 156rem;
+  height: 156rem;
   position: absolute;
   bottom: 0;
-  transform: translate(0em, 50%);
+  transform: translate(0rem, 50%);
 }
 
 .marsOrbitBorder {
-  border: 0.275em dotted rgba(222, 116, 24, 0.5);
+  border: 0.275rem dotted rgba(222, 116, 24, 0.5);
 }
 
 @keyframes mars {
@@ -33,23 +33,23 @@
 
 #mars {
   animation: mars 0.88s linear 0s infinite;
-  width: 5.3em;
-  height: 5.3em;
+  width: 5.3rem;
+  height: 5.3rem;
   transform: translate(0%, 50px);
   z-index: 1;
 }
 
 #marsShadowBox {
-  transform: translate(0em, -50%);
-  width: 5.3em;
-  height: 5.3em;
+  transform: translate(0rem, -50%);
+  width: 5.3rem;
+  height: 5.3rem;
   justify-content: center;
 }
 
 #marsShadow {
   z-index: 2;
-  width: 5.3em;
-  height: 5.3em;
+  width: 5.3rem;
+  height: 5.3rem;
   position: absolute;
   background: linear-gradient(
     0deg,
@@ -57,6 +57,6 @@
     rgba(0, 0, 0, 0.75),
     black
   );
-  box-shadow: 0em 0.1em 0.3em 0.2em rgb(0, 0, 0);
+  box-shadow: 0rem 0.1rem 0.3rem 0.2rem rgb(0, 0, 0);
   border-radius: 50%;
 }
