@@ -1,6 +1,6 @@
 #infoPanel {
   position: absolute;
-  border: 0.05rem solid #afeeee;
+  border: 0.2rem solid #afeeee;
   border-radius: 3rem;
   width: 100rem;
   height: 60rem;
@@ -24,6 +24,7 @@
 #mainUL {
   color: white;
   margin: 1rem 0rem auto 0rem;
+  padding: 0em;
 }
 
 .mainLI {
@@ -76,4 +77,5 @@
   width: 0.25rem;
   border-radius: 0.5rem;
   background-color: white;
+  margin: 0rem 0rem 0rem 4rem;
 }

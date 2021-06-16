@@ -1,6 +1,6 @@
 #quizPanel {
   position: absolute;
-  border: 0.05rem solid #afeeee;
+  border: 0.2rem solid #afeeee;
   border-radius: 3rem;
   width: 100rem;
   height: 60rem;
@@ -42,6 +42,7 @@
   border-radius: 50%;
   width: 7rem;
   height: 7rem;
+  padding: 0em;
   cursor: pointer;
   background-color: transparent;
   border-top: 0.2rem solid #afeeee;
@@ -184,7 +185,7 @@
   width: 30rem;
   height: 14rem;
   border-radius: 2rem;
-  border: 0.1rem solid rgba(255, 255, 255, 0.5);
+  border: 0.2rem solid rgba(255, 255, 255, 0.5);
   background-color: transparent;
   color: #78e2e2;
   cursor: pointer;
@@ -221,23 +222,23 @@
 }
 
 .wrongNotSelected {
-  border: 0.05rem solid #e27878;
+  border: 0.2rem solid #e27878;
   color: #d43535;
 }
 
 .correctNotSelected {
-  border: 0.05rem solid #78e27f;
+  border: 0.2rem solid #78e27f;
   color: #35d440;
 }
 
 .wrongSelected {
-  border: 0.2rem double #e27878;
+  border: 1rem double #e27878;
   color: #d43535;
   background-color: #eeafaf25;
 }
 
 .correctSelected {
-  border: 0.2rem double #78e27f;
+  border: 1rem double #78e27f;
   color: #35d440;
   background-color: #afeeb925;
 }
@@ -285,6 +286,6 @@
 
 @media (min-width: 450px) and (min-height: 450px) {
   .answerButton:enabled:hover {
-    border: 0.05rem solid #afeeee;
+    border: 0.2rem solid #afeeee;
   }
 }
