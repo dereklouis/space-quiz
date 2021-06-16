@@ -43,6 +43,7 @@ function Home() {
   );
   const [orbitRingStatus, setOrbitRingStatus] = useState(false);
   const [planetaryInfoSelector, setPlanetaryInfoSelector] = useState('');
+  const [isMobileDevice, setIsMobileDevice] = useState(false);
 
   const handleClick = (e, ref) => {
     const x = e.clientX - e.target.getBoundingClientRect().left;
@@ -140,9 +141,23 @@ function Home() {
       }
     }
   };
+  if (
+    /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+      navigator.userAgent
+    ) &&
+    isMobileDevice === false
+  ) {
+    setIsMobileDevice(true);
+  }
 
   return (
-    <div id="appMaster" className="FCAIC" onClick={masterClick}>
+    <div
+      id="appMaster"
+      className={`FCAIC ${
+        isMobileDevice ? 'mobileFullHeight' : 'computerFullHeight'
+      }`}
+      onClick={masterClick}
+    >
       <div id="ORTDiv" className="FCAIC">
         <button
           id="orbitalRingsToggle"
@@ -277,7 +292,12 @@ function Home() {
         userAnswers={userAnswers}
         setUserAnswers={setUserAnswers}
       />
-      <div id="solarSystemContainer" className="FCAIC">
+      <div
+        id="solarSystemContainer"
+        className={`FCAIC ${
+          isMobileDevice ? 'mobileFullHeight' : 'computerFullHeight'
+        }`}
+      >
         <img
           alt="comet"
           src="images/comet.png"

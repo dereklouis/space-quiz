@@ -14,6 +14,14 @@ body {
   align-items: center;
 }
 
+.computerFullHeight {
+  height: 100vh;
+}
+
+.mobileFullHeight {
+  height: -webkit-fill-available;
+}
+
 .opacityHide {
   opacity: 0;
 }
