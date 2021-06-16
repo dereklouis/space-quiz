@@ -118,7 +118,7 @@ font-family: 'Roboto', sans-serif; */
     opacity: 1;
   }
   25% {
-    transform: translate(-2rem, 4.5rem) rotate(-23deg) scaleX(-0.55)
+    transform: translate(-2.31rem, 4.82rem) rotate(-23deg) scaleX(-0.55)
       scaleY(0.33);
   }
   42% {

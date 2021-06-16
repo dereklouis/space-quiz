@@ -4,6 +4,15 @@ import './index.css';
 import Home from './Home';
 import reportWebVitals from './reportWebVitals';
 
+if (window.location.host === 'space--quiz.herokuapp.com') {
+  if (
+    window.location.protocol === 'http' ||
+    window.location.protocol === 'http:'
+  ) {
+    window.location.protocol = 'https';
+  }
+}
+
 if (localStorage.getItem('spaceQuizAnswersArr') === null) {
   if (localStorage.getItem('spaceQuizAnswersArr') !== '') {
     localStorage.setItem('spaceQuizAnswersArr', []);

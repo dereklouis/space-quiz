@@ -8,7 +8,7 @@
 }
 
 #jupiterOrbit {
-  /* animation: jupiterOrbit 378.6s linear 0s infinite; */
+  animation: jupiterOrbit 378.6s linear 0s infinite;
   background-color: transparent;
   border-radius: 50%;
   width: 195rem;
