@@ -11,6 +11,16 @@ import './styles/mars.css';
 import './styles/jupiter.css';
 import './styles/cometLetterSpin.css';
 
+let isMobileDevice = false;
+
+if (
+  /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+    navigator.userAgent
+  )
+) {
+  isMobileDevice = true;
+}
+
 function Home() {
   const beginRipple = useRef(null);
   const infoRipple = useRef(null);
@@ -43,7 +53,6 @@ function Home() {
   );
   const [orbitRingStatus, setOrbitRingStatus] = useState(false);
   const [planetaryInfoSelector, setPlanetaryInfoSelector] = useState('');
-  const [isMobileDevice, setIsMobileDevice] = useState(false);
 
   const handleClick = (e, ref) => {
     const x = e.clientX - e.target.getBoundingClientRect().left;
@@ -141,14 +150,6 @@ function Home() {
       }
     }
   };
-  if (
-    /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
-      navigator.userAgent
-    ) &&
-    isMobileDevice === false
-  ) {
-    setIsMobileDevice(true);
-  }
 
   return (
     <div
