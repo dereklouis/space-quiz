@@ -10,6 +10,7 @@ font-family: 'Roboto', sans-serif; */
 #appMaster {
   width: 100%;
   height: 100vh;
+  height: -webkit-fill-available;
   background: url('./stars.jpg') no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -106,6 +107,7 @@ font-family: 'Roboto', sans-serif; */
 #solarSystemContainer {
   width: 100%;
   height: 100vh;
+  height: -webkit-fill-available;
   margin: auto 0rem 0rem 0rem;
   position: relative;
   overflow: hidden;
