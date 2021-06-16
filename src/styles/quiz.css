@@ -195,10 +195,6 @@
   text-align: center;
 }
 
-.answerButton:enabled:hover {
-  border: 0.05rem solid #afeeee;
-}
-
 .answerButton:disabled {
   cursor: default;
 }
@@ -285,4 +281,10 @@
 
 .finalNumbers {
   color: #209797;
+}
+
+@media (min-width: 450px) and (min-height: 450px) {
+  .answerButton:enabled:hover {
+    border: 0.05rem solid #afeeee;
+  }
 }
