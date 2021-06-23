@@ -11,16 +11,6 @@ import './styles/mars.css';
 import './styles/jupiter.css';
 import './styles/cometLetterSpin.css';
 
-let isMobileDevice = false;
-
-if (
-  /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
-    navigator.userAgent
-  )
-) {
-  isMobileDevice = true;
-}
-
 function Home() {
   const beginRipple = useRef(null);
   const infoRipple = useRef(null);
@@ -152,13 +142,7 @@ function Home() {
   };
 
   return (
-    <div
-      id="appMaster"
-      className={`FCAIC ${
-        isMobileDevice ? 'mobileFullHeight' : 'computerFullHeight'
-      }`}
-      onClick={masterClick}
-    >
+    <div id="appMaster" className="FCAIC" onClick={masterClick}>
       <div id="ORTDiv" className="FCAIC">
         <button
           id="orbitalRingsToggle"
@@ -293,12 +277,7 @@ function Home() {
         userAnswers={userAnswers}
         setUserAnswers={setUserAnswers}
       />
-      <div
-        id="solarSystemContainer"
-        className={`FCAIC ${
-          isMobileDevice ? 'mobileFullHeight' : 'computerFullHeight'
-        }`}
-      >
+      <div id="solarSystemContainer" className="FCAIC">
         <img
           alt="comet"
           src="images/comet.png"
