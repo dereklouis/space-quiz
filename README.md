@@ -1,6 +1,6 @@
 ## Welcome to Space Quiz!
 
-![Pasta Friends mobile render](https://dereklouis.github.io/photos/spacequiz/spacequiz0.jpg)
+![Space Quiz Photo](https://dereklouis.github.io/photos/spacequiz/spacequiz0.jpg)
 
 The goal of Space Quiz was to deliver an experience far more captivating than your typical Sprocle quiz. Before you even begin the quiz, you are greeted by a beautiful scale model solar system. Click on a planet to learn more about about it, or click on the orbital rings button in the top right corner to toggle orbital rings on and off. Planets feature CSS generated shadows that stay true to the center of the sun regardless of the planet's orbital or rotational position.
 
