@@ -24,4 +24,4 @@ You will also see any lint errors in the console.
 
 ## Deployment
 
-Pasta friends is currently deployed on Firebase: https://space-quiz-27659.web.app
+Space Quiz is currently deployed on Firebase: https://space-quiz-27659.web.app
