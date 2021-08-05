@@ -4,7 +4,7 @@ import './index.css';
 import Home from './Home';
 import reportWebVitals from './reportWebVitals';
 
-if (window.location.host === 'space--quiz.herokuapp.com') {
+if (window.location.host === 'space-quiz-27659.web.app') {
   if (
     window.location.protocol === 'http' ||
     window.location.protocol === 'http:'
