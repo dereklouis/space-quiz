@@ -39,10 +39,13 @@ const PlanetaryInfo = (props) => {
             <li className="planetFact">
               Diameter:
               <span className="planetFactSpan">
-                {
-                  planetInfoObject[planetClickKey[props.planetaryInfoSelector]]
-                    .diameter
-                }
+                {props.units === 'metric'
+                  ? planetInfoObject[
+                      planetClickKey[props.planetaryInfoSelector]
+                    ].diameterMetric
+                  : planetInfoObject[
+                      planetClickKey[props.planetaryInfoSelector]
+                    ].diameterImperial}
               </span>
             </li>
             <li className="planetFact">
@@ -64,26 +67,30 @@ const PlanetaryInfo = (props) => {
               </span>
             </li>
             {planetInfoObject[planetClickKey[props.planetaryInfoSelector]]
-              .distanceFromSun === null ? (
+              .distanceFromSunMetric === null ? (
               <li className="planetFact">
                 Distance From Earth:
                 <span className="planetFactSpan">
-                  {
-                    planetInfoObject[
-                      planetClickKey[props.planetaryInfoSelector]
-                    ].distanceFromEarth
-                  }
+                  {props.units === 'metric'
+                    ? planetInfoObject[
+                        planetClickKey[props.planetaryInfoSelector]
+                      ].distanceFromEarthMetric
+                    : planetInfoObject[
+                        planetClickKey[props.planetaryInfoSelector]
+                      ].distanceFromEarthImperial}
                 </span>
               </li>
             ) : (
               <li className="planetFact">
                 Distance From Sun:
                 <span className="planetFactSpan">
-                  {
-                    planetInfoObject[
-                      planetClickKey[props.planetaryInfoSelector]
-                    ].distanceFromSun
-                  }
+                  {props.units === 'metric'
+                    ? planetInfoObject[
+                        planetClickKey[props.planetaryInfoSelector]
+                      ].distanceFromSunMetric
+                    : planetInfoObject[
+                        planetClickKey[props.planetaryInfoSelector]
+                      ].distanceFromSunImperial}
                 </span>
               </li>
             )}

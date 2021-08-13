@@ -209,12 +209,66 @@ font-family: 'Roboto', sans-serif; */
   animation: ORTClockwise 0.76s linear 0s infinite;
 }
 
+#unitsToggle {
+  position: absolute;
+  width: 7rem;
+  height: 13rem;
+  right: 0;
+  top: 0;
+  transform: translate(-1.2rem, 12rem);
+  justify-content: space-between;
+  z-index: 10;
+  opacity: 0.8;
+  transition-duration: 0.75s;
+}
+
+#unitsToggle p {
+  color: #209797;
+  font-family: 'Roboto', sans-serif;
+  letter-spacing: 0.1rem;
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+#unitsSwitchTrack {
+  width: 3.5rem;
+  height: 7rem;
+  border-radius: 2rem;
+  background-color: rgba(130, 130, 130, 0.15);
+  border: solid 0.3rem rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+}
+
+#unitsSwitch {
+  width: 3rem;
+  height: 3rem;
+  background-color: #78e2e2;
+  border-radius: 50%;
+  margin: 0.3rem 0rem;
+}
+
+.metricSwitch {
+  justify-content: flex-start;
+}
+
+.imperialSwitch {
+  justify-content: flex-end;
+}
+
 @media (min-width: 450px) and (min-height: 450px) {
   #ORTDiv {
     opacity: 0.5;
   }
 
   #ORTDiv:hover {
+    opacity: 1;
+  }
+
+  #unitsToggle {
+    opacity: 0.3;
+  }
+
+  #unitsToggle:hover {
     opacity: 1;
   }
 

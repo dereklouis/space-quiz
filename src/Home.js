@@ -31,6 +31,7 @@ function Home() {
 
   const [infoPanelState, setInfoPanelState] = useState(false);
   const [quizStatus, setQuizStatus] = useState(false);
+  const [units, setUnits] = useState('metric');
   const [currentSlide, setCurrentSlide] = useState(
     localStorage.getItem('spaceQuizAnswersArr').split(',')[0] === ''
       ? -1
@@ -133,6 +134,8 @@ function Home() {
           'planetaryFactsUl',
           'planetaryFactsImage',
           'orbitalRingsToggle',
+          'unitsSwitchTrack',
+          'unitsSwitch',
         ];
         if (!idsToNotClosePlanetaryFactsPanel.includes(e.target.id)) {
           planetaryInfoPanel.current.className = 'panelHide';
@@ -153,6 +156,25 @@ function Home() {
         <div id="ORT3" />
         <div id="ORT4" />
         <div id="ORT5" />
+      </div>
+      <div id="unitsToggle" className="FCAIC">
+        <p>METRIC</p>
+        <div
+          id="unitsSwitchTrack"
+          className={`FCAIC ${
+            units === 'metric' ? 'metricSwitch' : 'imperialSwitch'
+          }`}
+          onClick={() => {
+            if (units === 'metric') {
+              setUnits('imperial');
+            } else {
+              setUnits('metric');
+            }
+          }}
+        >
+          <div id="unitsSwitch" />
+        </div>
+        <p>IMPERIAL</p>
       </div>
       <div id="navBar">
         {quizStatus ? (
@@ -269,6 +291,7 @@ function Home() {
         planetaryInfoSelector={planetaryInfoSelector}
         setPlanetaryInfoSelector={setPlanetaryInfoSelector}
         planetaryInfoPanel={planetaryInfoPanel}
+        units={units}
       />
       <Quiz
         quizStatus={quizStatus}
