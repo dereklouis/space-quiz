@@ -215,7 +215,7 @@ font-family: 'Roboto', sans-serif; */
   height: 13rem;
   right: 0;
   top: 0;
-  transform: translate(-1.2rem, 12rem);
+  transform: translate(-1.2rem, 11rem);
   justify-content: space-between;
   z-index: 10;
   opacity: 0.8;
