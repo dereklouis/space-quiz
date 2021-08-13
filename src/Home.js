@@ -299,6 +299,7 @@ function Home() {
         setCurrentSlide={setCurrentSlide}
         userAnswers={userAnswers}
         setUserAnswers={setUserAnswers}
+        units={units}
       />
       <div id="solarSystemContainer" className="FCAIC">
         <img

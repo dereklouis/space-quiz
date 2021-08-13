@@ -183,7 +183,11 @@ const Quiz = (props) => {
                 onClick={(e) => handleAnswer(e, 'a', aButtonRipple)}
                 disabled={answerButtonDisabledCheck()}
               >
-                {questions[props.currentSlide].answers[0]}
+                {questions[props.currentSlide].units
+                  ? props.units === 'metric'
+                    ? questions[props.currentSlide].answersMetric[0]
+                    : questions[props.currentSlide].answersImperial[0]
+                  : questions[props.currentSlide].answers[0]}
                 <span
                   ref={aButtonRipple}
                   onAnimationEnd={(e) => resetAnimation(e, aButtonRipple)}
@@ -195,7 +199,11 @@ const Quiz = (props) => {
                 onClick={(e) => handleAnswer(e, 'b', bButtonRipple)}
                 disabled={answerButtonDisabledCheck()}
               >
-                {questions[props.currentSlide].answers[1]}
+                {questions[props.currentSlide].units
+                  ? props.units === 'metric'
+                    ? questions[props.currentSlide].answersMetric[1]
+                    : questions[props.currentSlide].answersImperial[1]
+                  : questions[props.currentSlide].answers[1]}
                 <span
                   ref={bButtonRipple}
                   onAnimationEnd={(e) => resetAnimation(e, bButtonRipple)}
@@ -209,7 +217,11 @@ const Quiz = (props) => {
                 onClick={(e) => handleAnswer(e, 'c', cButtonRipple)}
                 disabled={answerButtonDisabledCheck()}
               >
-                {questions[props.currentSlide].answers[2]}
+                {questions[props.currentSlide].units
+                  ? props.units === 'metric'
+                    ? questions[props.currentSlide].answersMetric[2]
+                    : questions[props.currentSlide].answersImperial[2]
+                  : questions[props.currentSlide].answers[2]}
                 <span
                   ref={cButtonRipple}
                   onAnimationEnd={(e) => resetAnimation(e, cButtonRipple)}
@@ -221,7 +233,11 @@ const Quiz = (props) => {
                 onClick={(e) => handleAnswer(e, 'd', dButtonRipple)}
                 disabled={answerButtonDisabledCheck()}
               >
-                {questions[props.currentSlide].answers[3]}
+                {questions[props.currentSlide].units
+                  ? props.units === 'metric'
+                    ? questions[props.currentSlide].answersMetric[3]
+                    : questions[props.currentSlide].answersImperial[3]
+                  : questions[props.currentSlide].answers[3]}
                 <span
                   ref={dButtonRipple}
                   onAnimationEnd={(e) => resetAnimation(e, dButtonRipple)}

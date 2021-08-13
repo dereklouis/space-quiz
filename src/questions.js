@@ -167,8 +167,10 @@ export const questions = [
   },
   {
     question: 'How fast does the ISS travel around the Earth?',
-    answers: ['2,288 mph', '7,000 mph', '13,000 mph', '17,500 mph'],
+    answersMetric: ['2,288 mph', '7,000 mph', '13,000 mph', '17,500 mph'],
+    answersImperial: ['3,682 kph', '11,265 kph', '20,920 kph', '27,580 kph'],
     correct: 'd',
+    units: true,
     questionNumber: 22,
   },
   {
@@ -198,9 +200,16 @@ export const questions = [
     questionNumber: 26,
   },
   {
-    question: 'About how many miles above the earth does the ISS orbit?',
-    answers: ['200', '250', '300', '350'],
+    question: 'About far above the earth does the ISS orbit?',
+    answersMetric: [
+      '320 Kilometers',
+      '400 Kilometers',
+      '480 Kilometers',
+      '560 Kilometers',
+    ],
+    answersImperial: ['200 Miles', '250 Miles', '300 Miles', '350 Miles'],
     correct: 'a',
+    units: true,
     questionNumber: 27,
   },
   {
